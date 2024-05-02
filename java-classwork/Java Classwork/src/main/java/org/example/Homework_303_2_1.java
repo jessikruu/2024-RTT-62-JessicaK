@@ -1,6 +1,10 @@
 package org.example;
 
+import java.text.DecimalFormat;
+
 public class Homework_303_2_1 {
+    static final double SALES_TAX = .08;
+
     public static void main(String[] args) {
         //Write a program that declares two integer variables,
         // assigns an integer to each, and adds them together.
@@ -94,15 +98,22 @@ public class Homework_303_2_1 {
         // subtotal to obtain the totalSale amount. Be sure to format the results to two decimal
         // places
 
-        int pastry = 3;
-        int espresso = 2;
-        int water = 1;
+        double pastry = 3;
+        double espresso = 2;
+        double water = 1;
 
-        int subtotal = ((pastry * 3) + (espresso * 4) + (water * 2));
-        final double SALES_TAX = .08;
+        double subtotal = ((pastry * 3) + (espresso * 4) + (water * 2));
         double totalSale = (subtotal * SALES_TAX) + subtotal;
+        DecimalFormat df = new DecimalFormat("0.00");
 
-        System.out.println(totalSale);
+        System.out.println("Subtotal   : $" + df.format(subtotal));
+        System.out.println("Total Tax  : $" + df.format(SALES_TAX * subtotal));
+        System.out.println("Total Sale : $" + df.format(totalSale));
+
+        Integer abc = null;
+        abc = 150;
+
+        double abcd = abc.doubleValue();
 
 
 
