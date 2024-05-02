@@ -36,7 +36,7 @@ public class Homework_303_2_1 {
 
         int v1 = 5;
         int v2 = 2;
-        double div = (double) v1 / v2;
+        double div = (double) v1 / (double) v2;
 
         System.out.println(div);
 
@@ -70,18 +70,20 @@ public class Homework_303_2_1 {
 
         double q1 = (double) x;
         double q2 = (double) y / (double) x;
+        double q3 = (double) y / x;
 
         System.out.println(q2);
+        System.out.println(q3);
 
         //Write a program that declares a named constant and uses it in a calculation.
         //Print the result.
 
-        int INCHES = 12;
-        int FEET = 6;
+        final int INCHES = 12;
+        final int FEET = 6;
 
-        int heightInFeet = INCHES * FEET;
+        int heightInInches = INCHES * FEET;
 
-        System.out.println(heightInFeet);
+        System.out.println(heightInInches);
 
         //Write a program where you create three variables that represent products at a cafe.
         // The products could be beverages like coffee, cappuccino, espresso, green tea, etc.
@@ -97,7 +99,7 @@ public class Homework_303_2_1 {
         int water = 1;
 
         int subtotal = ((pastry * 3) + (espresso * 4) + (water * 2));
-        double SALES_TAX = .08;
+        final double SALES_TAX = .08;
         double totalSale = (subtotal * SALES_TAX) + subtotal;
 
         System.out.println(totalSale);
