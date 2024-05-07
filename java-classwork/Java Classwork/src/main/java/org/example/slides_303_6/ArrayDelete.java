@@ -25,9 +25,5 @@ public class ArrayDelete {
             deleted[pos -1] = array[pos];
         }
 
-
-        for (int value : deleted) {
-            System.out.println(value);
-        }
     }
 }
