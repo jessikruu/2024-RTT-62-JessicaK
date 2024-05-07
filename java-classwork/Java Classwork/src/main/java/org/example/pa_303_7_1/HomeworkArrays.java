@@ -2,6 +2,8 @@ package org.example.pa_303_7_1;
 
 import java.util.Arrays;
 import java.util.Random;
+import java.util.stream.DoubleStream;
+import java.util.stream.IntStream;
 
 public class HomeworkArrays {
     public static void main(String[] args) {
@@ -29,5 +31,13 @@ public class HomeworkArrays {
             }
         }
         System.out.println("Max value is: " + maxVal);
+
+        //add together the array, then divide by total pieces in the array
+        //sum / length
+        double sum = IntStream.of(array).sum();
+        double avg = sum / array.length;
+        System.out.println("The average is: " + avg);
+
+        //sum += array[i]
     }
 }
