@@ -1,9 +1,16 @@
 package org.example.glab_303_3_1_Hacker_Rank;
 
-public class JavaSubstring {
-    public static void main(String[] args) {
+import java.util.Scanner;
 
-        String str1 = "Helloworld";
-        System.out.println(str1.substring(0,(str1.length() - 1)));
+public class JavaSubstring {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String S = in.next();
+        int start = in.nextInt();
+        int end = in.nextInt();
+
+        System.out.println(S.substring(start, end));
+
     }
 }

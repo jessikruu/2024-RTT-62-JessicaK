@@ -3,24 +3,32 @@ package org.example.glab_303_3_1_Hacker_Rank;
 import java.util.Scanner;
 
 public class JavaStringsIntroduction {
+
+
     public static void main(String[] args) {
 
-        String str1 = "Hello";
-        String str2 = "Java";
+        Scanner sc = new Scanner(System.in);
+        String A = sc.next();
+        String B = sc.next();
+        sc.close();
 
-        int length = str1.length() + str2.length();
+        int length = A.length() + B.length();
         System.out.println(length);
 
-        int compare = str1.compareTo(str2);
-        System.out.println(compare);
+        int compare = A.compareTo(B);
+        if (compare <= 0) {
+            System.out.println("No");
+        } else {
+            System.out.println("Yes");
+        }
+
+        String Aa = A.substring(0, 1).toUpperCase() + A.substring(1);
+        System.out.print(Aa + " ");
+        String Bb = B.substring(0, 1).toUpperCase() + B.substring(1);
+        System.out.print(Bb);
+
+
     }
 
-//    public static void main(String[] args) {
-//
-//        Scanner sc=new Scanner(System.in);
-//        String A=sc.next();
-//        String B=sc.next();
-//        /* Enter your code here. Print output to STDOUT. */
-//
-//    }
+
 }
