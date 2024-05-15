@@ -52,10 +52,16 @@ public class SBA1Practice {
         }
         System.out.println("Final sum is" + sum1);
 
-//        for (int pos = 0; pos < nums.length; pos++) {
-//            intNums [pos] = Integer.parseInt(nums[pos]);
-//            System.out.println(intNums.charA);
-//        }
+
+        ///////
+
+        int x = 4562;
+
+        Integer y = x;
+        String number = y.toString();
+
+
+
 
 
     }
