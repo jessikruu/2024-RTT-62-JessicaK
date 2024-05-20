@@ -35,6 +35,3 @@ public class NioExampleTwo {
         fos.close();
     }
 }
-
-
-}
