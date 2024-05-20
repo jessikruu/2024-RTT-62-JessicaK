@@ -12,10 +12,11 @@ public class Product {
 
     }
 
-    public Product(double price, String name, boolean beverage) {
+    public Product(double price, String name, boolean beverage, int quantityAvailable) {
         this.price = price;
         this.name = name;
         this.beverage = beverage;
+        this.QuantityAvailable = QuantityAvailable;
     }
 
     public double getPrice() {
@@ -40,5 +41,23 @@ public class Product {
 
     public void setBeverage(boolean beverage) {
         this.beverage = beverage;
+    }
+
+    public int getQuantityAvailable() {
+        return QuantityAvailable;
+    }
+
+    public void setQuantityAvailable(int quantityAvailable) {
+        QuantityAvailable = quantityAvailable;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "price=" + price +
+                ", name='" + name + '\'' +
+                ", beverage=" + beverage +
+                ", quantityAvailable=" + QuantityAvailable +
+                '}';
     }
 }

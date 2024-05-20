@@ -10,7 +10,7 @@ public class Main {
     private Scanner scanner = new Scanner(System.in);
 
     public void printMenu() {
-        System.out.println("0) Exit");
+        System.out.println("\n\n0) Exit");
         System.out.println("1) Print the list of products");
         System.out.println("2) Order a product");
         System.out.println("3) Checkout");
@@ -20,6 +20,7 @@ public class Main {
         coffeeShop = new CoffeeShop();
         coffeeShop.initProducts();
         coffeeShop.printProducts();
+        coffeeShop.printCheapProducts();
     }
 
     // we only have 1 public static void main for the whole coffee shop project
@@ -27,6 +28,7 @@ public class Main {
     public static void main(String[] args) {
         Main main = new Main();
         main.runCoffeeShop();
+        main.printMenu();
     }
 
 }
