@@ -25,7 +25,7 @@ public class Football implements Sport{
         }
 
         double avgAge = sum / age.length;
-        DecimalFormat df = new DecimalFormat("0.00");
+        java.text.DecimalFormat df = new java.text.DecimalFormat("0.00");
         System.out.println("The average age of the team is " + df.format(avgAge));
     }
 
