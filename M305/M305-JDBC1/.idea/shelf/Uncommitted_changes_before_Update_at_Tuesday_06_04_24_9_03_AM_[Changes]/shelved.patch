@@ -1,0 +1,597 @@
+Index: src/main/java/org/example/database/entity/Orders.java
+===================================================================
+diff --git a/src/main/java/org/example/database/entity/Orders.java b/src/main/java/org/example/database/entity/Orders.java
+deleted file mode 100644
+--- a/src/main/java/org/example/database/entity/Orders.java	(revision 1d96c299bc4a48a822d2a7bc6f7b9208d9f23c4a)
++++ /dev/null	(revision 1d96c299bc4a48a822d2a7bc6f7b9208d9f23c4a)
+@@ -1,33 +0,0 @@
+-package org.example.database.entity;
+-
+-import jakarta.persistence.Column;
+-import jakarta.persistence.GeneratedValue;
+-import jakarta.persistence.GenerationType;
+-import jakarta.persistence.Id;
+-
+-public class Orders {
+-
+-
+-    @Id
+-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+-    @Column(name = "id")
+-    private Integer id;
+-
+-    @Column(name = "customer_id")
+-    private String customerID;
+-
+-    @Column(name = "order_date")
+-    private String orderDate;
+-
+-    @Column(name = "required_date")
+-    private String requiredDate;
+-
+-    @Column(name = "shipped_date")
+-    private String shippedDate;
+-
+-    @Column(name = "status")
+-    private String status;
+-
+-    @Column(name = "comments")
+-    private String comments;
+-}
+Index: src/main/java/org/example/database/entity/Customers.java
+===================================================================
+diff --git a/src/main/java/org/example/database/entity/Customers.java b/src/main/java/org/example/database/entity/Customers.java
+deleted file mode 100644
+--- a/src/main/java/org/example/database/entity/Customers.java	(revision 1d96c299bc4a48a822d2a7bc6f7b9208d9f23c4a)
++++ /dev/null	(revision 1d96c299bc4a48a822d2a7bc6f7b9208d9f23c4a)
+@@ -1,57 +0,0 @@
+-package org.example.database.entity;
+-
+-import jakarta.persistence.*;
+-import lombok.Getter;
+-import lombok.Setter;
+-
+-@Getter
+-@Setter
+-@Entity
+-@Table(name = "customers")
+-
+-
+-public class Customers {
+-
+-    @Id
+-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+-    @Column(name = "id")
+-    private Integer id;
+-
+-    @Column(name = "customer_name")
+-    private String customerName;
+-
+-    @Column(name = "contact_lastname")
+-    private String contactLastName;
+-
+-    @Column(name = "contact_firstname")
+-    private String contactFirstName;
+-
+-    @Column(name = "phone")
+-    private String phone;
+-
+-    @Column(name = "address_line1")
+-    private String address1;
+-
+-    @Column(name = "address_line2")
+-    private String address2;
+-
+-    @Column(name = "city")
+-    private String city;
+-
+-    @Column(name = "state")
+-    private String state;
+-
+-    @Column(name = "postal_code")
+-    private String zipCode;
+-
+-    @Column(name = "country")
+-    private String country;
+-
+-    @Column(name = "sales_rep_employee_id")
+-    private Integer salesRepEmployeeID;
+-
+-    @Column(name = "credit_limit")
+-    private Integer creditLimit;
+-
+-
+-}
+Index: src/main/java/org/example/database/entity/Products.java
+===================================================================
+diff --git a/src/main/java/org/example/database/entity/Products.java b/src/main/java/org/example/database/entity/Products.java
+deleted file mode 100644
+--- a/src/main/java/org/example/database/entity/Products.java	(revision 1d96c299bc4a48a822d2a7bc6f7b9208d9f23c4a)
++++ /dev/null	(revision 1d96c299bc4a48a822d2a7bc6f7b9208d9f23c4a)
+@@ -1,43 +0,0 @@
+-package org.example.database.entity;
+-
+-import jakarta.persistence.Column;
+-import jakarta.persistence.GeneratedValue;
+-import jakarta.persistence.GenerationType;
+-import jakarta.persistence.Id;
+-
+-public class Products {
+-
+-    @Id
+-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+-    @Column(name = "id")
+-    private Integer id;
+-
+-    @Column(name = "product_code")
+-    private Integer productCode;
+-
+-    @Column(name = "product_name")
+-    private String productName;
+-
+-    @Column(name = "productline_id")
+-    private String productLineId;
+-
+-    @Column(name = "product_scale")
+-    private String productScale;
+-
+-    @Column(name = "product_vendor")
+-    private String productVendor;
+-
+-    @Column(name = "product_description")
+-    private Integer product_description;
+-
+-    @Column(name = "quantity_in_stock")
+-    private Integer quantityInStock;
+-
+-    @Column(name = "buy_price")
+-    private String buyPrice;
+-
+-    @Column(name = "msrp")
+-    private String msrp;
+-
+-
+-}
+Index: .idea/.gitignore
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+deleted file mode 100644
+--- a/.idea/.gitignore	(revision 1d96c299bc4a48a822d2a7bc6f7b9208d9f23c4a)
++++ /dev/null	(revision 1d96c299bc4a48a822d2a7bc6f7b9208d9f23c4a)
+@@ -1,8 +0,0 @@
+-# Default ignored files
+-/shelf/
+-/workspace.xml
+-# Editor-based HTTP Client requests
+-/httpRequests/
+-# Datasource local storage ignored files
+-/dataSources/
+-/dataSources.local.xml
+Index: pom.xml
+===================================================================
+diff --git a/pom.xml b/pom.xml
+deleted file mode 100644
+--- a/pom.xml	(revision 1d96c299bc4a48a822d2a7bc6f7b9208d9f23c4a)
++++ /dev/null	(revision 1d96c299bc4a48a822d2a7bc6f7b9208d9f23c4a)
+@@ -1,45 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project xmlns="http://maven.apache.org/POM/4.0.0"
+-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+-    <modelVersion>4.0.0</modelVersion>
+-
+-    <groupId>org.example</groupId>
+-    <artifactId>M305-JDBC</artifactId>
+-    <version>1.0-SNAPSHOT</version>
+-
+-    <properties>
+-        <maven.compiler.source>17</maven.compiler.source>
+-        <maven.compiler.target>17</maven.compiler.target>
+-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+-    </properties>
+-
+-
+-    <dependencies>
+-
+-        <dependency>
+-            <groupId>com.mysql</groupId>
+-            <artifactId>mysql-connector-j</artifactId>
+-            <version>8.2.0</version>
+-        </dependency>
+-
+-
+-        <!-- lombok -->
+-        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+-        <dependency>
+-            <groupId>org.projectlombok</groupId>
+-            <artifactId>lombok</artifactId>
+-            <version>1.18.32</version>
+-            <scope>provided</scope>
+-        </dependency>
+-
+-        <!-- https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-core -->
+-        <dependency>
+-            <groupId>org.hibernate.orm</groupId>
+-            <artifactId>hibernate-core</artifactId>
+-            <version>6.5.2.Final</version>
+-        </dependency>
+-
+-    </dependencies>
+-
+-</project>
+\ No newline at end of file
+Index: src/main/java/org/example/database/dao/CustomerDAO.java
+===================================================================
+diff --git a/src/main/java/org/example/database/dao/CustomerDAO.java b/src/main/java/org/example/database/dao/CustomerDAO.java
+deleted file mode 100644
+--- a/src/main/java/org/example/database/dao/CustomerDAO.java	(revision 1d96c299bc4a48a822d2a7bc6f7b9208d9f23c4a)
++++ /dev/null	(revision 1d96c299bc4a48a822d2a7bc6f7b9208d9f23c4a)
+@@ -1,14 +0,0 @@
+-package org.example.database.dao;
+-
+-import org.example.database.entity.Customers;
+-import java.util.List;
+-
+-public class CustomerDAO {
+-
+-    public List<Customers> findByZipCode(String zipCode) {
+-        // this is where the code goes to execute the query
+-        return null;
+-
+-    }
+-
+-}
+Index: .idea/encodings.xml
+===================================================================
+diff --git a/.idea/encodings.xml b/.idea/encodings.xml
+deleted file mode 100644
+--- a/.idea/encodings.xml	(revision 1d96c299bc4a48a822d2a7bc6f7b9208d9f23c4a)
++++ /dev/null	(revision 1d96c299bc4a48a822d2a7bc6f7b9208d9f23c4a)
+@@ -1,7 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="Encoding">
+-    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+-    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+deleted file mode 100644
+--- a/.idea/misc.xml	(revision 1d96c299bc4a48a822d2a7bc6f7b9208d9f23c4a)
++++ /dev/null	(revision 1d96c299bc4a48a822d2a7bc6f7b9208d9f23c4a)
+@@ -1,14 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ExternalStorageConfigurationManager" enabled="true" />
+-  <component name="MavenProjectsManager">
+-    <option name="originalFiles">
+-      <list>
+-        <option value="$PROJECT_DIR$/pom.xml" />
+-      </list>
+-    </option>
+-  </component>
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="corretto-17" project-jdk-type="JavaSDK">
+-    <output url="file://$PROJECT_DIR$/out" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: src/main/java/org/example/database/entity/Employee.java
+===================================================================
+diff --git a/src/main/java/org/example/database/entity/Employee.java b/src/main/java/org/example/database/entity/Employee.java
+deleted file mode 100644
+--- a/src/main/java/org/example/database/entity/Employee.java	(revision 1d96c299bc4a48a822d2a7bc6f7b9208d9f23c4a)
++++ /dev/null	(revision 1d96c299bc4a48a822d2a7bc6f7b9208d9f23c4a)
+@@ -1,50 +0,0 @@
+-package org.example.database.entity;
+-
+-import jakarta.persistence.*;
+-import lombok.Getter;
+-import lombok.Setter;
+-
+-
+-@Getter
+-@Setter
+-@Entity
+-@Table(name = "employees")
+-
+-public class Employee {
+-
+-
+-    @Id // this tells hibernate that this column is the PK
+-    @GeneratedValue(strategy = GenerationType.IDENTITY) // this tells hibernate that the column is autoincremented
+-    @Column(name = "id")
+-    private Integer id;
+-
+-    @Column(name = "office_id")
+-    private Integer officeId;
+-
+-    @Column(name = "lastname")
+-    private String lastName;
+-
+-    @Column(name = "firstname")
+-    private String firstName;
+-
+-    @Column(name = "extension")
+-    private String extension;
+-
+-    @Column(name = "email")
+-    private String email;
+-
+-    @Column(name = "reports_to")
+-    private Integer reportsTo;
+-
+-    @Column(name = "job_title")
+-    private String jobTitle;
+-
+-    @Column(name = "vacation_hours")
+-    private Integer vacationHours;
+-
+-    @Column(name = "profile_image_url")
+-    private String profileImageUrl;
+-
+-    // lombok
+-
+-}
+Index: src/main/java/org/example/JDBCDemo.java
+===================================================================
+diff --git a/src/main/java/org/example/JDBCDemo.java b/src/main/java/org/example/JDBCDemo.java
+deleted file mode 100644
+--- a/src/main/java/org/example/JDBCDemo.java	(revision 1d96c299bc4a48a822d2a7bc6f7b9208d9f23c4a)
++++ /dev/null	(revision 1d96c299bc4a48a822d2a7bc6f7b9208d9f23c4a)
+@@ -1,58 +0,0 @@
+-package org.example;
+-
+-import java.sql.*;
+-import java.util.Scanner;
+-
+-public class JDBCDemo {
+-
+-    public static void main(String[] args) throws ClassNotFoundException {
+-        String dburl = "jdbc:mysql://localhost:3306/classic_models";
+-        String user = "dev";
+-        String password = "SQLpw1234";
+-        System.out.println("-------- MySQL JDBC Connection Demo ------------");
+-
+-
+-
+-        //scanner here to take input from the user to search for a specific first name for example
+-        Scanner scanner = new Scanner(System.in);
+-        System.out.println("Please enter the first name of the employee you want to search for: ");
+-        String input = scanner.nextLine();
+-        int input2 = scanner.nextInt();
+-
+-
+-
+-
+-        try {
+-            Class.forName("com.mysql.cj.jdbc.Driver");
+-            Connection connection = DriverManager.getConnection(dburl, user, password);
+-//            String selectSQL = "Select * FROM employees where firstname = '" + input + "' ";
+-            String selectSQL = "Select * FROM employees where firstname = ? or lastname = ? or id = ? ";
+-//            Statement stmt = connection.createStatement();
+-
+-            PreparedStatement stmt = connection.prepareStatement(selectSQL);
+-
+-            stmt.setString(1, input);
+-            stmt.setString(2, "Doe");
+-            stmt.setInt(3, input2);
+-
+-
+-            ResultSet result = stmt.executeQuery();
+-
+-            while (result.next()) {
+-                String employeeID = result.getString("id");
+-                String fname = result.getString("firstname");
+-                String lname = result.getString("lastname");
+-                String email = result.getString("email");
+-                String jobTitle = result.getString("job_title");
+-//                System.out.println(employeeID +" | " + fname + " | "+ lname + " | " + email + " | " + jobTitle );
+-                String format = "%-10s | %-15s | %-15s | %-35s | %-20s%n";
+-// Use printf to format the output
+-                System.out.printf(format, employeeID, fname, lname, email, jobTitle);
+-            }
+-            connection.close();
+-        } catch (SQLException e) {
+-            e.printStackTrace();
+-        }
+-    }
+-
+-}
+Index: src/main/java/org/example/Main.java
+===================================================================
+diff --git a/src/main/java/org/example/Main.java b/src/main/java/org/example/Main.java
+deleted file mode 100644
+--- a/src/main/java/org/example/Main.java	(revision 1d96c299bc4a48a822d2a7bc6f7b9208d9f23c4a)
++++ /dev/null	(revision 1d96c299bc4a48a822d2a7bc6f7b9208d9f23c4a)
+@@ -1,17 +0,0 @@
+-package org.example;
+-
+-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+-public class Main {
+-    public static void main(String[] args) {
+-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
+-        // to see how IntelliJ IDEA suggests fixing it.
+-        System.out.printf("Hello and welcome!");
+-
+-        for (int i = 1; i <= 5; i++) {
+-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
+-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
+-            System.out.println("i = " + i);
+-        }
+-    }
+-}
+\ No newline at end of file
+Index: src/main/java/org/example/database/entity/OrderDetails.java
+===================================================================
+diff --git a/src/main/java/org/example/database/entity/OrderDetails.java b/src/main/java/org/example/database/entity/OrderDetails.java
+deleted file mode 100644
+--- a/src/main/java/org/example/database/entity/OrderDetails.java	(revision 1d96c299bc4a48a822d2a7bc6f7b9208d9f23c4a)
++++ /dev/null	(revision 1d96c299bc4a48a822d2a7bc6f7b9208d9f23c4a)
+@@ -1,31 +0,0 @@
+-package org.example.database.entity;
+-
+-import jakarta.persistence.Column;
+-import jakarta.persistence.GeneratedValue;
+-import jakarta.persistence.GenerationType;
+-import jakarta.persistence.Id;
+-
+-public class OrderDetails {
+-
+-    @Id
+-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+-    @Column(name = "id")
+-    private Integer id;
+-
+-    @Column(name = "order_id")
+-    private Integer orderId;
+-
+-    @Column(name = "product_id]")
+-    private Integer productId;
+-
+-    @Column(name = "quantity_ordered")
+-    private Integer quantityOrdered;
+-
+-    @Column(name = "price_each")
+-    private String priceEach;
+-
+-    @Column(name = "order_line_number")
+-    private String orderLineNumber;
+-
+-
+-}
+Index: src/main/java/org/example/database/dao/OrderDetailsDAO.java
+===================================================================
+diff --git a/src/main/java/org/example/database/dao/OrderDetailsDAO.java b/src/main/java/org/example/database/dao/OrderDetailsDAO.java
+deleted file mode 100644
+--- a/src/main/java/org/example/database/dao/OrderDetailsDAO.java	(revision 1d96c299bc4a48a822d2a7bc6f7b9208d9f23c4a)
++++ /dev/null	(revision 1d96c299bc4a48a822d2a7bc6f7b9208d9f23c4a)
+@@ -1,4 +0,0 @@
+-package org.example.database.dao;
+-
+-public class OrderDetailsDAO {
+-}
+Index: src/main/java/org/example/database/dao/EmployeeDAO.java
+===================================================================
+diff --git a/src/main/java/org/example/database/dao/EmployeeDAO.java b/src/main/java/org/example/database/dao/EmployeeDAO.java
+deleted file mode 100644
+--- a/src/main/java/org/example/database/dao/EmployeeDAO.java	(revision 1d96c299bc4a48a822d2a7bc6f7b9208d9f23c4a)
++++ /dev/null	(revision 1d96c299bc4a48a822d2a7bc6f7b9208d9f23c4a)
+@@ -1,15 +0,0 @@
+-package org.example.database.dao;
+-
+-import org.example.database.entity.Employee;
+-
+-import java.util.List;
+-
+-public class EmployeeDAO {
+-
+-    public List<Employee> findByFirstName(String firstName) {
+-        // this is where the code goes to execute the query
+-        return null;
+-
+-    }
+-
+-}
+Index: src/main/java/org/example/database/dao/OrderDAO.java
+===================================================================
+diff --git a/src/main/java/org/example/database/dao/OrderDAO.java b/src/main/java/org/example/database/dao/OrderDAO.java
+deleted file mode 100644
+--- a/src/main/java/org/example/database/dao/OrderDAO.java	(revision 1d96c299bc4a48a822d2a7bc6f7b9208d9f23c4a)
++++ /dev/null	(revision 1d96c299bc4a48a822d2a7bc6f7b9208d9f23c4a)
+@@ -1,15 +0,0 @@
+-package org.example.database.dao;
+-
+-import org.example.database.entity.Orders;
+-
+-import java.util.List;
+-
+-public class OrderDAO {
+-
+-    public List<Orders> checkIfShipped(String status) {
+-        // this is where the code goes to execute the query
+-        return null;
+-
+-    }
+-
+-}
+Index: src/main/java/org/example/database/dao/ProductsDAO.java
+===================================================================
+diff --git a/src/main/java/org/example/database/dao/ProductsDAO.java b/src/main/java/org/example/database/dao/ProductsDAO.java
+deleted file mode 100644
+--- a/src/main/java/org/example/database/dao/ProductsDAO.java	(revision 1d96c299bc4a48a822d2a7bc6f7b9208d9f23c4a)
++++ /dev/null	(revision 1d96c299bc4a48a822d2a7bc6f7b9208d9f23c4a)
+@@ -1,4 +0,0 @@
+-package org.example.database.dao;
+-
+-public class ProductsDAO {
+-}
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+deleted file mode 100644
+--- a/.idea/vcs.xml	(revision 1d96c299bc4a48a822d2a7bc6f7b9208d9f23c4a)
++++ /dev/null	(revision 1d96c299bc4a48a822d2a7bc6f7b9208d9f23c4a)
+@@ -1,6 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="VcsDirectoryMappings">
+-    <mapping directory="$PROJECT_DIR$/../.." vcs="Git" />
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .gitignore
+===================================================================
+diff --git a/.gitignore b/.gitignore
+deleted file mode 100644
+--- a/.gitignore	(revision 1d96c299bc4a48a822d2a7bc6f7b9208d9f23c4a)
++++ /dev/null	(revision 1d96c299bc4a48a822d2a7bc6f7b9208d9f23c4a)
+@@ -1,38 +0,0 @@
+-target/
+-!.mvn/wrapper/maven-wrapper.jar
+-!**/src/main/**/target/
+-!**/src/test/**/target/
+-
+-### IntelliJ IDEA ###
+-.idea/modules.xml
+-.idea/jarRepositories.xml
+-.idea/compiler.xml
+-.idea/libraries/
+-*.iws
+-*.iml
+-*.ipr
+-
+-### Eclipse ###
+-.apt_generated
+-.classpath
+-.factorypath
+-.project
+-.settings
+-.springBeans
+-.sts4-cache
+-
+-### NetBeans ###
+-/nbproject/private/
+-/nbbuild/
+-/dist/
+-/nbdist/
+-/.nb-gradle/
+-build/
+-!**/src/main/**/build/
+-!**/src/test/**/build/
+-
+-### VS Code ###
+-.vscode/
+-
+-### Mac OS ###
+-.DS_Store
+\ No newline at end of file
