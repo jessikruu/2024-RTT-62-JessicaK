@@ -1,9 +1,18 @@
 package org.example.database.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.util.Date;
+
+
+@Getter
+@Setter
+@Entity
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "orders")
 
 public class Orders {
 
@@ -14,16 +23,16 @@ public class Orders {
     private Integer id;
 
     @Column(name = "customer_id")
-    private String customerID;
+    private Integer customerID;
 
-    @Column(name = "order_date")
-    private String orderDate;
+    @Column(name = "order_date", columnDefinition = "DATE")
+    private Date orderDate;
 
-    @Column(name = "required_date")
-    private String requiredDate;
+    @Column(name = "required_date", columnDefinition = "DATE")
+    private Date requiredDate;
 
-    @Column(name = "shipped_date")
-    private String shippedDate;
+    @Column(name = "shipped_date", columnDefinition = "DATE")
+    private Date shippedDate;
 
     @Column(name = "status")
     private String status;

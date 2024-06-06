@@ -1,9 +1,15 @@
 package org.example.database.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.*;
+
+@Getter
+@Setter
+@Entity
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "orderdetails")
 
 public class OrderDetails {
 
@@ -15,17 +21,17 @@ public class OrderDetails {
     @Column(name = "order_id")
     private Integer orderId;
 
-    @Column(name = "product_id]")
+    @Column(name = "product_id")
     private Integer productId;
 
     @Column(name = "quantity_ordered")
     private Integer quantityOrdered;
 
-    @Column(name = "price_each")
-    private String priceEach;
+    @Column(name = "price_each", columnDefinition = "DECIMAL")
+    private Double priceEach;
 
-    @Column(name = "order_line_number")
-    private String orderLineNumber;
+    @Column(name = "order_line_number", columnDefinition = "SMALLINT")
+    private Integer orderLineNumber;
 
 
 }

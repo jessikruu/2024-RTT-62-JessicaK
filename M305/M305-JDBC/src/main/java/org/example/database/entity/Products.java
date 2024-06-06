@@ -1,9 +1,15 @@
 package org.example.database.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.*;
+
+@Getter
+@Setter
+@Entity
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "products")
 
 public class Products {
 
@@ -13,13 +19,13 @@ public class Products {
     private Integer id;
 
     @Column(name = "product_code")
-    private Integer productCode;
+    private String productCode;
 
     @Column(name = "product_name")
     private String productName;
 
     @Column(name = "productline_id")
-    private String productLineId;
+    private Integer productLineId;
 
     @Column(name = "product_scale")
     private String productScale;
@@ -28,16 +34,16 @@ public class Products {
     private String productVendor;
 
     @Column(name = "product_description")
-    private Integer product_description;
+    private String product_description;
 
-    @Column(name = "quantity_in_stock")
+    @Column(name = "quantity_in_stock", columnDefinition = "SMALLINT")
     private Integer quantityInStock;
 
-    @Column(name = "buy_price")
-    private String buyPrice;
+    @Column(name = "buy_price", columnDefinition = "DECIMAL")
+    private Double buyPrice;
 
-    @Column(name = "msrp")
-    private String msrp;
+    @Column(name = "msrp", columnDefinition = "DECIMAL")
+    private Double msrp;
 
 
 }

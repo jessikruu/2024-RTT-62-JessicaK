@@ -1,12 +1,14 @@
 package org.example.database.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @Entity
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "customers")
 
 
@@ -47,11 +49,11 @@ public class Customers {
     @Column(name = "country")
     private String country;
 
-    @Column(name = "sales_rep_employee_id")
-    private Integer salesRepEmployeeID;
+    @Column(name = "sales_rep_employee_id", columnDefinition = "INT")
+    private Double salesRepEmployeeID;
 
-    @Column(name = "credit_limit")
-    private Integer creditLimit;
+    @Column(name = "credit_limit", columnDefinition = "DECIMAL")
+    private Double creditLimit;
 
 
 }
