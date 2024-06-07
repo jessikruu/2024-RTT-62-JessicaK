@@ -32,7 +32,6 @@ public class FirstHibernateDemo {
 
 
 
-
 //        //lets create a new employee in the database
 //        Employee newEmployee = new Employee();
 //
@@ -62,13 +61,13 @@ public class FirstHibernateDemo {
 //            System.out.println(employees);
 
 
-//        Employee employee = employeeDAO.findById(1056);
-//
-//        System.out.println(employee);
+        Employee employee = employeeDAO.findById(1056);
 
-//        employee = employeeDAO.findById(1);
-//
-//        System.out.println(employee);
+        System.out.println(employee);
+
+        employee = employeeDAO.findById(1);
+
+        System.out.println(employee);
 
 //        List<Customers> customers = customersDAO.findByCustomerName("Mini Wheels Co.");
 //
@@ -88,15 +87,17 @@ public class FirstHibernateDemo {
 //
 //        }
         Customers customers = customersDAO.findById(520);
-
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Please enter a first name");
-        String firstName = scanner.nextLine();
-
-        System.out.println(customers);
+                System.out.println(customers);
 
 
-        System.out.println("");
+//        Scanner scanner = new Scanner(System.in);
+//        System.out.println("Please enter a first name");
+//        String firstName = scanner.nextLine();
+//
+//        System.out.println(customers);
+//
+//
+//        System.out.println("");
 
 
 

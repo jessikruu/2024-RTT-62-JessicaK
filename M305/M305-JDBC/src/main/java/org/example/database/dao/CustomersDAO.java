@@ -1,8 +1,9 @@
 package org.example.database.dao;
 
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.TypedQuery;
 import org.example.database.entity.Customers;
-import org.example.database.entity.Employee;
+import org.example.database.entity.Orders;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -19,7 +20,7 @@ public class CustomersDAO {
 
         String hql = "SELECT c FROM Customers c where c.customerName = :customerName";
 
-        TypedQuery<Customers> query = session.createQuery(hql,Customers.class);
+        TypedQuery<Customers> query = session.createQuery(hql, Customers.class);
 
 
         query.setParameter("customerName", customerName);
@@ -40,7 +41,7 @@ public class CustomersDAO {
 
         String hql = "SELECT c FROM Customers c where c.contactFirstName = :contactFirstName";
 
-        TypedQuery<Customers> query = session.createQuery(hql,Customers.class);
+        TypedQuery<Customers> query = session.createQuery(hql, Customers.class);
 
 
         query.setParameter("contactFirstName", contactFirstName);
@@ -53,7 +54,53 @@ public class CustomersDAO {
 
     }
 
-    public void insert( Customers customer) {
+    public Customers findById(Integer id) {
+
+        SessionFactory factory = new Configuration().configure().buildSessionFactory();
+        Session session = factory.openSession();
+
+
+        String hql = "SELECT c FROM Customers c where c.id = :id";
+
+        TypedQuery<Customers> query = session.createQuery(hql, Customers.class);
+
+
+        query.setParameter("id", id);
+
+
+        try {
+            Customers result = query.getSingleResult();
+            return result;
+        } catch (NoResultException e) {
+            return null;
+        } finally {
+            session.close();
+        }
+    }
+
+    public List<Customers> findByIdList(Integer id) {
+
+        SessionFactory factory = new Configuration().configure().buildSessionFactory();
+        Session session = factory.openSession();
+
+
+        String hql = "SELECT c FROM Customers c where c.id = :id";
+
+        TypedQuery<Customers> query = session.createQuery(hql, Customers.class);
+
+
+        query.setParameter("id", id);
+
+
+        List<Customers> result = query.getResultList();
+
+
+
+        session.close();
+        return result;
+    }
+
+    public void insert(Customers customer) {
 
         //first two lines of code begin the hibernate session
         SessionFactory factory = new Configuration().configure().buildSessionFactory();
@@ -91,33 +138,6 @@ public class CustomersDAO {
         session.getTransaction().commit();
         session.close();
     }
-
-    public Customers findById(Integer id) {
-
-        SessionFactory factory = new Configuration().configure().buildSessionFactory();
-        Session session = factory.openSession();
-
-
-        String hql = "SELECT c FROM Customers c where c.id = :id";
-
-        TypedQuery<Customers> query = session.createQuery(hql,Customers.class);
-
-
-        query.setParameter("id", id);
-
-
-        try {
-            Customers result = query.getSingleResult();
-            return result;
-        } catch ( Exception e ) {
-            return null;
-        } finally {
-            session.close();
-
-        }
-
-    }
-
 
 
 }

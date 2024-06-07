@@ -1,5 +1,6 @@
 package org.example.database.dao;
 
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.TypedQuery;
 import org.example.database.entity.Employee;
 import org.hibernate.Session;
@@ -109,7 +110,7 @@ public class EmployeeDAO {
         try {
             Employee result = query.getSingleResult();
             return result;
-        } catch ( Exception e ) {
+        } catch ( NoResultException e ) {
             return null;
         } finally {
             session.close();

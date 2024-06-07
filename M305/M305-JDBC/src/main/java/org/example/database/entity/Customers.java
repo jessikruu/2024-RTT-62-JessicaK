@@ -3,6 +3,8 @@ package org.example.database.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Getter
 @Setter
 @Entity
@@ -18,6 +20,10 @@ public class Customers {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
+
+    @ToString.Exclude
+    @OneToMany(mappedBy = "customers", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Orders> orders;
 
     @Column(name = "customer_name")
     private String customerName;
@@ -49,8 +55,16 @@ public class Customers {
     @Column(name = "country")
     private String country;
 
-    @Column(name = "sales_rep_employee_id", columnDefinition = "INT")
-    private Double salesRepEmployeeID;
+    //select e.* from customers c, employee e where c.sales_rep_employee_id = e.id
+    @ToString.Exclude
+    @ManyToOne(fetch = FetchType.LAZY, optional = true)
+    @JoinColumn(name = "sales_rep_employee_id", nullable = true)
+    private Employee employee;
+
+    //bc we added the @manytoone annotation above, tihs column is now considered a duplicate in hibernate
+    //  by adding the insertable = false and updatable = false, we're turning this into a read only variable
+    @Column(name = "sales_rep_employee_id", columnDefinition = "INT", insertable = false, updatable = false)
+    private Integer salesRepEmployeeID;
 
     @Column(name = "credit_limit", columnDefinition = "DECIMAL")
     private Double creditLimit;
