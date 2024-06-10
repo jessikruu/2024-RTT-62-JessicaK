@@ -13,9 +13,11 @@ import java.util.List;
 
 public class OrdersDAO {
 
+    SessionFactory factory = new Configuration().configure().buildSessionFactory();
+
+
     public Orders findById(Integer id) {
 
-        SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
 
 
@@ -41,7 +43,6 @@ public class OrdersDAO {
 
     public List<Orders> findByCustomerId(Integer customerId) {
 
-        SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
 
 

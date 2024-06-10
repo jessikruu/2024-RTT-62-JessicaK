@@ -12,9 +12,11 @@ import java.util.List;
 
 public class CustomersDAO {
 
+    SessionFactory factory = new Configuration().configure().buildSessionFactory();
+
+
     public List<Customers> findByCustomerName(String customerName) {
 
-        SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
 
 
@@ -35,7 +37,6 @@ public class CustomersDAO {
 
     public List<Customers> findByContactFirstName(String contactFirstName) {
 
-        SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
 
 
@@ -56,7 +57,6 @@ public class CustomersDAO {
 
     public Customers findById(Integer id) {
 
-        SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
 
 
@@ -80,7 +80,6 @@ public class CustomersDAO {
 
     public List<Customers> findByIdList(Integer id) {
 
-        SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
 
 
@@ -103,7 +102,6 @@ public class CustomersDAO {
     public void insert(Customers customer) {
 
         //first two lines of code begin the hibernate session
-        SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
 
         // begin the transaction
@@ -122,7 +120,6 @@ public class CustomersDAO {
     }
 
     public void update(Customers customers) {
-        SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
         session.getTransaction().begin();
         session.merge(customers);
@@ -131,7 +128,6 @@ public class CustomersDAO {
     }
 
     public void delete(Customers customers) {
-        SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
         session.getTransaction().begin();
         session.delete(customers);

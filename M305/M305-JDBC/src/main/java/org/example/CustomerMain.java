@@ -33,12 +33,13 @@ public class CustomerMain {
 
     public void printOrders(List<Orders> Orders) {
 
-
-        System.out.println("For the customer ID of- " + customerId + " the following orders are placed:\n" + "Order Id  |  Order Date  |  Shipped Date");
+        System.out.println("For the customer ID of- " + customerId + " the following orders are placed:\n" + "Customer Name | Order Id  |  Order Date  |  Shipped Date");
         System.out.println("=========================================");
+
         //print out the results of the query
         for (Orders orders : Orders) {
-            System.out.println(orders.getId() + " | " + orders.getOrderDate() + " | " + orders.getShippedDate());
+
+            System.out.println("For the customer ID of- " + customerId + " the following orders are placed:\n" + "Customer Name | Order Id  |  Order Date  |  Shipped Date \n" + "==================================================\n" +  orders.getCustomers().getCustomerName() + " | " + orders.getId() +  " | " + orders.getOrderDate() +  " | " + orders.getShippedDate() + "\n \n");
         }
     }
 
@@ -59,9 +60,7 @@ public class CustomerMain {
 
 
     public void run() {
-        // prompt the user to enter a customerId
 
-        // use our customerDAO to run the query
         List<Orders> customers = ordersDAO.findByCustomerId(customerId);
 
         printOrders(customers);
