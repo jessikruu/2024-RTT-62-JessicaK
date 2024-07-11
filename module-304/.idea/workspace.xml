@@ -2,9 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3da68b6f-9bd0-4cca-8c00-7aa94a52ae25" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../M305/M305-JDBC/src/main/java/org/example/database/dao/EmployeeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../M305/M305-JDBC/src/main/java/org/example/database/dao/EmployeeDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../M305/M305-JDBC1/.idea/shelf/Uncommitted_changes_before_Update_at_Tuesday_06_04_24_9_03_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../M305/M305-JDBC1/.idea/shelf/Uncommitted_changes_before_Update_at_Tuesday_06_04_24_9_03_AM__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Hibernate SBA" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../M305/M305-JDBC/src/main/java/org/example/EqualsDemo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBoot/src/main/java/com/example/springboot/controller/IndexController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBoot/src/main/java/com/example/springboot/database/DAO/ProductDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBoot/src/main/java/com/example/springboot/database/entity/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBoot/src/main/webapp/WEB-INF/jsp/another-page.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBoot/src/main/webapp/WEB-INF/jsp/include/footer.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBoot/src/main/webapp/WEB-INF/jsp/include/header.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBoot/src/main/webapp/WEB-INF/jsp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBoot/src/main/webapp/pub/css/global.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../M305/M305-JDBC/src/main/java/org/example/database/entity/Customers.java" beforeDir="false" afterPath="$PROJECT_DIR$/../M305/M305-JDBC/src/main/java/org/example/database/entity/Customers.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../M305/M305-JDBC1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../M305/M305-JDBC1/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,24 +24,24 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2hQLYD7KWdy9jeOiAnt8b2bKUZ6" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/punki/Development/2024-RTT-62(2)/module-304",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/punki/Development/2024-RTT-62(2)/module-304&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -49,6 +59,8 @@
       <option name="presentableId" value="Default" />
       <updated>1717521399787</updated>
       <workItem from="1717521400838" duration="10000" />
+      <workItem from="1720551824203" duration="15000" />
+      <workItem from="1720553142312" duration="8000" />
     </task>
     <servers />
   </component>

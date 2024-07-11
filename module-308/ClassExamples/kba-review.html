@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // this is a comment in javascript
+        //       012345678910
+        let a = "Hello world";
+        console.log(a.substring(4, 5));
+        console.log("Last index of = " + a.lastIndexOf("l"));
+        //would be 9 bc that is the last instance of the l
+
+        let x = 5;
+        let y = 6;
+        let z = ("x*y");
+
+        console.log(z);
+
+        // the difference between == and ===
+        // == is loose equal, === is strict equal
+        console.log("1" == 1); //true
+        console.log("1" == "1"); //true
+        console.log(1 == 1); //true
+        console.log("1" === 1); //false, bc === compares the value and type, whereas == only compares the value 
+        console.log(1 === 1); //true
+
+        // diff btwn let and var, let can only be defined once, var is more than once
+
+        //how to make an alert box in js
+        // alert("message to pop up");
+
+        // in js, we can concatinate strings using the plus
+
+        // in js, creating a date is very flexible
+        // java is very strict
+
+        let date1 = new Date("Thu Jan 27 2009 17:34:41");
+        let date2 = new Date("01/02/2009");
+        //getMonth considers Jan 0 an not 1, returns a number btwn 0 and 11
+        console.log("Month = " + date1.getMonth());
+        console.log("Month = " + date2.getMonth());
+        console.log(date1.getMonth() === date2.getMonth());
+
+
+        //in js, continue works the same way as in java
+        //break works the same way as it does in java 
+        // continue will cause it to skip the 3, break will exit the for loop and only print 0, 1, 2
+
+        for(let i = 0; i < 5; i++) {
+            if (i == 3) {
+                continue
+            }
+            console.log(i);
+        }
+
+        //TRUE STATEMENT: Js is "safe" in that the browser doesn't allow direct access to the memory or CPU
+
+        // very common mistake-
+        let trick = 8 + "8";
+        console.log(trick);
+        //this will concatenate and print 88
+
+        //getElementsByTagName - finds alements in the doc by their HTML tag
+        // for example, can get all p tags
+
+        //getElementsById - finds elements by the id="" attribute
+        //this will return a single unique element bc id is unique
+
+        //getElementsByClassName - finds all elements that have a given class name
+
+        //getElementsByName - finds all elements w the specific name
+
+        //querySelector - finds the first element based on the CSS querySelector
+        // this is the most powerful and most useful
+
+
+        // you can't subtract a string from a string
+        let q = "Hello" - "World";
+        console.log(q);
+
+        //for loops
+        let person = {
+            firstName: "Jessica",
+            lastName: "Krueger",
+            eyeColor: "Green"
+        }
+
+        //in in the loop means it loops over the keys
+        for (let i in person) {
+            console.log(i + " = " + person[i]);
+        }
+
+        //of loops over the values of the array
+        let array = [1, 2, 3, 4];
+        for (let i of array) {
+            console.log(i);
+        }
+
+        //two ways of registering an event listener
+        //first way is registering the onClick="function()" on an HTML tag like we did in buttonclick.html
+        //second way is using the addEventListener function built into js language
+        //to use the addEventListener function, first you have to query the element from the doc
+        //then you can use the addEventListener('click', function());
+
+        //Array.splice() changes the original array whereas Array.slice() foes not 
+
+        // 308.4 slide 28 talks about creating new HTML elements
+        //there are two ways of creating elements
+        //first is document.createElement('p'); this will create a new p tag in the doc - can make all tags
+        // createTextNode() only works for text nodes like a p tag
+
+        //javascript trivia
+        // number datatype in js is either an integer or a float
+
+
+        //for each loop-
+        //the forEach method is called for each element in the array, similar to a java forEach
+        //         0  1  2  3  4  5
+        let arr = [1, 2, 3, 4, 5,  ];
+        arr.forEach(function(value, index, array) {
+            console.log("value = " + value);
+            console.log("index = " + index);
+
+            array[index] = value * value;
+            console.log(arr[index]);
+        });
+
+        //in the filter, using only a single variable, we're just getting the value in a variable called x
+        //the filter function is returning true or false
+        //if it returns true, then it will keep the element
+        //if it returns false, it will remove the element 
+        //however, 0 is another way of representing false 
+        //so when x % 5 == 0, it is returning false 
+        console.log(arr.reverse().filter (function(x) {
+            //when this evaluates to 0, it causes javascript to consider it false which then
+            //it doesn't alter the original array, it creates a new array and removed anything that evaluates to false
+            
+            return x % 5;
+        }));
+
+        console.log(arr);
+
+
+        // var p = function() {
+        //     if (i != 5) {
+        //         p = true
+        //     } else {
+        //         p = false
+        //     }
+        // };
+        // console.log(p());
+
+
+        console.log(function() {
+            if (i != 5) {
+                return true;
+            } else {
+                return false;
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>

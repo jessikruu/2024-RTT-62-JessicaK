@@ -5,9 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d21936ec-d8bc-43c2-beb7-e1ad4c03524e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../M305-JDBC/src/main/java/org/example/database/dao/EmployeeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../M305-JDBC/src/main/java/org/example/database/dao/EmployeeDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_Tuesday_06_04_24_9_03_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_Tuesday_06_04_24_9_03_AM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Hibernate SBA" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../M305-JDBC/src/main/java/org/example/EqualsDemo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../SpringBoot/src/main/java/com/example/springboot/controller/IndexController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../SpringBoot/src/main/java/com/example/springboot/database/entity/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../SpringBoot/src/main/webapp/WEB-INF/jsp/another-page.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../SpringBoot/src/main/webapp/WEB-INF/jsp/include/footer.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../SpringBoot/src/main/webapp/WEB-INF/jsp/include/header.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../SpringBoot/src/main/webapp/WEB-INF/jsp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../SpringBoot/src/main/webapp/pub/css/global.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../M305-JDBC/src/main/java/org/example/database/entity/Customers.java" beforeDir="false" afterPath="$PROJECT_DIR$/../M305-JDBC/src/main/java/org/example/database/entity/Customers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../module-304/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../module-304/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,6 +101,7 @@
       <workItem from="1717519404559" duration="25000" />
       <workItem from="1717519454063" duration="7000" />
       <workItem from="1717521195950" duration="19000" />
+      <workItem from="1720551876009" duration="3000" />
     </task>
     <servers />
   </component>

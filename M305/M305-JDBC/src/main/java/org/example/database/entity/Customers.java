@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
+import java.util.Objects;
 
 @Getter
 @Setter
@@ -70,4 +71,16 @@ public class Customers {
     private Double creditLimit;
 
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Customers customers = (Customers) o;
+        return Objects.equals(id, customers.id) && Objects.equals(customerName, customers.customerName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, customerName);
+    }
 }
