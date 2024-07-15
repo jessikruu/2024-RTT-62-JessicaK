@@ -1,34 +1,16 @@
 <jsp:include page="include/header.jsp"/>
 
+<link rel="stylesheet" href="/pub/css/global.css">
 
-<h1>This is my first JSP page</h1>
-<a href="/another-page">2nd page</a>
+<h1>Classic Models Search Engine</h1>
 
-<h2>${message}</h2>
+<h3 style="text-align: center" class="tableBackground">Please choose from available searches on top bar --^</h3>
+<%--<a href="/another-page">2nd page</a>--%>
 
-
-<table class="table">
-    <tr>
-        <td>
-            id
-        </td>
-        <td>${productKey.id}</td>
-    </tr>
-    <tr>
-        <td>Code</td>
-        <td>${productKey.productCode}</td>
-    </tr>
-    <tr>
-        <td>name</td>
-        <td>${productKey.productName}</td>
-    </tr>
-    <tr>
-        <td>description</td>
-        <td>${productKey.productDescription}</td>
-    </tr>
+<%--<h2>${message}</h2>--%>
 
 
-</table>
+
 
 
 <jsp:include page="include/footer.jsp"/>
