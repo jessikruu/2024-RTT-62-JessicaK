@@ -19,9 +19,9 @@ public class Offices {
     @Column(name = "id")
     private Integer id;
 
-//    @ToString.Exclude
-//    @OneToMany(mappedBy = "office", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-//    private List<Employee> employees;
+    @ToString.Exclude
+    @OneToMany(mappedBy = "office", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Employee> employees;
 
     @Column(name = "city")
     private String city;

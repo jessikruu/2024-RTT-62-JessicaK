@@ -5,7 +5,7 @@
 
 <h1>Employee Info</h1>
 <body class="bottom-of-page">
-<div class="tableBackground">
+<div>
     <p>${employeeKey.firstName} ${employeeKey.lastName}</p>
     <div class="container">
         <div class="row justify-content-center">
@@ -53,7 +53,7 @@
 <div class="container">
 
     <p>
-        <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+        <a class="btn btn-primary custom-primary custom-primary:hover" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
            aria-controls="collapseExample">
             Customers Found (${customers.size()})
         </a>

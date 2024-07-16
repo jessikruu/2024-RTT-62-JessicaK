@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="/pub/css/global.css">
 
 </head>
-<nav class="navbar navbar-expand-lg navbar-light " style="background-color: lavender">
+<nav class="navbar navbar-expand-lg navbar-light " style="background-color: rgba(212, 212, 250,1)">
     <div class="container-fluid">
         <a class="navbar-brand" href="/">Classic Models Search Engine</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

@@ -14,7 +14,7 @@
 
             <div class="col-12">
 
-                <form action="/employee/createSubmit">
+                <form class="form-container" action="/employee/createSubmit">
 
                     <div class="row g-3 align-items-center justify-content-center pb-3">
 
@@ -83,10 +83,10 @@
                     <div class="row g-3 align-items-center justify-content-center pb-3">
 
                         <div class="col-1">
-                            <label for="profileImageUrl" class="col-form-label">Profile Image URL</label>
+                            <label for="profileImageURL" class="col-form-label">Profile Image URL</label>
                         </div>
                         <div class="col-auto">
-                            <input type="text" id="profileImageUrl" name="profileImageUrl" aria-describedby="form-control">
+                            <input type="text" id="profileImageURL" name="profileImageURL" aria-describedby="form-control">
                         </div>
                     </div>
 

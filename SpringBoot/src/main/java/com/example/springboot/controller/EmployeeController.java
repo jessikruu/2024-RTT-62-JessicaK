@@ -106,11 +106,17 @@ public class EmployeeController {
         employee.setEmail(form.getEmail());
         employee.setFirstName(form.getFirstName());
         employee.setLastName(form.getLastName());
-        employee.setExtension("x123");
-        employee.setOfficeId(form.getOfficeId());
+        employee.setExtension(form.getExtension());
         log.debug(form.getOfficeId().toString());
-        employee.setJobTitle("CEO");
+        employee.setJobTitle(form.getJobTitle());
         employee.setReportsTo(form.getReportsTo());
+        employee.setVacationHours(form.getVacationHours());
+        employee.setProfileImageURL(form.getProfileImageURL());
+
+
+        Offices office = officesDAO.findById(form.getOfficeId());
+        //we have to create an office object bc of the updatable = false and insertable = false
+        employee.setOffice(office);
 
         employee = employeeDAO.save(employee);
         //when we save to the database, it will autoincrement to give us a new id

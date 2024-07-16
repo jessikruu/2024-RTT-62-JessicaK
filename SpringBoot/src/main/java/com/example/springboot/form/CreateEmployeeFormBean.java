@@ -13,6 +13,10 @@ public class CreateEmployeeFormBean {
     private String email;
     private String firstName;
     private String lastName;
+    private String extension;
+    private String jobTitle;
+    private Integer vacationHours;
+    private String profileImageURL;
 
     //we're going to make this datatype an integer bc we want to write to the db as an integer
     private Integer reportsTo;

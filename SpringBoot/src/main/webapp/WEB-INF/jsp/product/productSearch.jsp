@@ -15,8 +15,8 @@
 
 
 <!-- a search form -->
-
-<section class="tableBackground" style="margin-top: -10px">
+<body class="bottom-of-page">
+<section>
 
     <div class="container">
 
@@ -28,13 +28,13 @@
 
                     <div class="mb-3">
 
-                        <label for="search" class="form-label"><h4>Enter Search Term Below</h4></label>
+                        <label for="search" class="form-label"><h4>Search Below</h4></label>
                         <input type="text" value="${search}" class="form-control" id="search" name="search"
-                               placeholder="Enter text here"/>
+                               placeholder="Enter search term"/>
 
 
                     </div>
-                    <button type="submit" class="btn btn-primary">Search</button>
+                    <button type="submit" class="btn btn-primary custom-primary custom-primary:hover">Search</button>
 
                 </form>
             </div>
@@ -83,5 +83,5 @@
 
 
 </section>
-
+</body>
 <jsp:include page="../include/footer.jsp"/>

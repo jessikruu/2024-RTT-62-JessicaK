@@ -14,8 +14,9 @@
 <%--</section>--%>
 
 <!-- a search form -->
+<body class="bottom-of-page">
 
-<section class="tableBackground" style="margin-top: -10px">
+<section>
 
     <div class="container">
 
@@ -33,7 +34,7 @@
 
 
                     </div>
-                    <button type="submit" class="btn btn-primary">Search</button>
+                    <button type="submit" class="btn btn-primary custom-primary custom-primary:hover">Search</button>
 
                 </form>
             </div>
@@ -85,5 +86,5 @@
 
 
 </section>
-
+</body>
 <jsp:include page="../include/footer.jsp"/>
