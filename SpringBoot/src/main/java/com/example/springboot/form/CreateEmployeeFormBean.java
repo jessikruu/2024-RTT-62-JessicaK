@@ -16,4 +16,5 @@ public class CreateEmployeeFormBean {
 
     //we're going to make this datatype an integer bc we want to write to the db as an integer
     private Integer reportsTo;
+    private Integer officeId;
 }

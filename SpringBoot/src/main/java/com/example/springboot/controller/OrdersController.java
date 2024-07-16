@@ -33,7 +33,7 @@ public class OrdersController {
         //i am going to add the user unput back into the model so that we can display the search term in the input field
         response.addObject("search", search);
 
-        List<Orders> orders = ordersDAO.findByCustomerId(search);
+        List<Orders> orders = ordersDAO.findBycustomerID(search);
         response.addObject("orders", orders);
         //the attribute name assigns a name for the jsp to use, the second term needs to match the list name, bc that is what references it
         log.debug(orders.toString());
@@ -41,7 +41,7 @@ public class OrdersController {
         return response;
     }
 
-    @GetMapping("/order/info")
+    @GetMapping("/orders/info")
     public ModelAndView orderInfo(@RequestParam(required = false) Integer id) {
 
         //by default the @requestparam is required, meaning it has to be in the url or else you get error

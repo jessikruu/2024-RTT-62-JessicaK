@@ -22,6 +22,11 @@ public class Employee {
     @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Customer> customers;
 
+//    @ToString.Exclude
+//    @ManyToOne(fetch = FetchType.LAZY, optional = true)
+//    @JoinColumn(name = "office_id", nullable = true)
+//    private Offices office;
+
     @Column(name = "office_id")
     private Integer officeId;
 

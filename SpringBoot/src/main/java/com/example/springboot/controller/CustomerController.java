@@ -2,10 +2,8 @@ package com.example.springboot.controller;
 import com.example.springboot.database.DAO.CustomerDAO;
 
 
-import com.example.springboot.database.DAO.EmployeeDAO;
 import com.example.springboot.database.DAO.OrdersDAO;
 import com.example.springboot.database.entity.Customer;
-import com.example.springboot.database.entity.Employee;
 import com.example.springboot.database.entity.Orders;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +22,7 @@ public class CustomerController {
     private CustomerDAO customerDAO;
 
     @Autowired
-    private EmployeeDAO employeeDAO;
+    private OrdersDAO ordersDAO;
 
     @GetMapping("/customer/search")
     //the get mapping ^^^ is the url that you use in the bar
@@ -62,8 +60,8 @@ public class CustomerController {
         Customer customer = customerDAO.findById(id);
         response.addObject("customerKey", customer);
 
-        Employee employee = employeeDAO.findById(id);
-        response.addObject("employee", employee);
+        List<Orders> orders = ordersDAO.findBycustomerID(id);
+        response.addObject("orders", orders);
 
 
 

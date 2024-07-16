@@ -1,10 +1,12 @@
 package com.example.springboot.controller;
 
 import com.example.springboot.database.DAO.CustomerDAO;
+import com.example.springboot.database.DAO.OfficesDAO;
 import com.example.springboot.database.entity.Customer;
 import com.example.springboot.database.entity.Employee;
 import com.example.springboot.database.DAO.EmployeeDAO;
 
+import com.example.springboot.database.entity.Offices;
 import com.example.springboot.database.entity.Product;
 import com.example.springboot.form.CreateEmployeeFormBean;
 import lombok.extern.slf4j.Slf4j;
@@ -28,6 +30,9 @@ public class EmployeeController {
 
     @Autowired
     private CustomerDAO customerDAO;
+
+    @Autowired
+    private OfficesDAO officesDAO;
 
     @GetMapping("/search")
     //the get mapping ^^^ is the url that you use in the bar
@@ -83,6 +88,10 @@ public class EmployeeController {
 
         response.addObject("reportsToEmployees", reportsToEmployees);
 
+        List<Offices> reportingToOffice = officesDAO.findAll();
+
+        response.addObject("reportingToOffice", reportingToOffice);
+
         return response;
     }
 
@@ -98,7 +107,8 @@ public class EmployeeController {
         employee.setFirstName(form.getFirstName());
         employee.setLastName(form.getLastName());
         employee.setExtension("x123");
-        employee.setOfficeId(1);
+        employee.setOfficeId(form.getOfficeId());
+        log.debug(form.getOfficeId().toString());
         employee.setJobTitle("CEO");
         employee.setReportsTo(form.getReportsTo());
 
