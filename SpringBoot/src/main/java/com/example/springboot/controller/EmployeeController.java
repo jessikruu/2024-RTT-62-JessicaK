@@ -9,9 +9,13 @@ import com.example.springboot.database.DAO.EmployeeDAO;
 import com.example.springboot.database.entity.Offices;
 import com.example.springboot.database.entity.Product;
 import com.example.springboot.form.CreateEmployeeFormBean;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -55,7 +59,6 @@ public class EmployeeController {
         log.debug(employees.toString());
 
 
-
         return response;
     }
 
@@ -74,7 +77,6 @@ public class EmployeeController {
 
         List<Customer> customers = customerDAO.findBySalesRepEmployeeID(id);
         response.addObject("customers", customers);
-
 
 
         return response;
@@ -96,37 +98,68 @@ public class EmployeeController {
     }
 
     @GetMapping("/createSubmit")
-    public ModelAndView createSubmit(CreateEmployeeFormBean form) {
+    public ModelAndView createSubmit(@Valid CreateEmployeeFormBean form, BindingResult bindingResult) {
         //@RequestParam String **email** the email needs to match the name that was assigned in the form (if used, code above updated to shortcut)
         ModelAndView response = new ModelAndView();
 
-        log.debug(form.toString());
+        if (bindingResult.hasErrors()) {
+            for (ObjectError error : bindingResult.getAllErrors()) {
+                log.debug("Validation error : " + ((FieldError) error).getField() + " = " + error.getDefaultMessage());
+            }
 
-        Employee employee = new Employee();
-        employee.setEmail(form.getEmail());
-        employee.setFirstName(form.getFirstName());
-        employee.setLastName(form.getLastName());
-        employee.setExtension(form.getExtension());
-        log.debug(form.getOfficeId().toString());
-        employee.setJobTitle(form.getJobTitle());
-        employee.setReportsTo(form.getReportsTo());
-        employee.setVacationHours(form.getVacationHours());
-        employee.setProfileImageURL(form.getProfileImageURL());
+            //if we're in this part of the if statement, then we know an error has occurred
+            //we add the binding result to the model so we can use it on the JSP page to show the user the errors
+            response.addObject("bindingResult", bindingResult);
+
+            //the page needs the list of employees, so we need to add the list of employees to the model
+            List<Employee> reportsToEmployees = employeeDAO.findAll();
+            response.addObject("reportsToEmployees", reportsToEmployees);
+
+            //also need the list of offices
+            List<Offices> reportingToOffice = officesDAO.findAll();
+            response.addObject("reportingToOffice", reportingToOffice);
+
+            response.setViewName("employee/createEmployee");
+
+            //now to add the form to the model so we can display the user entered data
+
+            response.addObject("form", form);
+
+            return response;
 
 
-        Offices office = officesDAO.findById(form.getOfficeId());
-        //we have to create an office object bc of the updatable = false and insertable = false
-        employee.setOffice(office);
+        } else {
 
-        employee = employeeDAO.save(employee);
-        //when we save to the database, it will autoincrement to give us a new id
-        //the new id is available in the return from the save method
-        //returns the same object after the info has been inserted into the db
 
-        response.setViewName("redirect:/employee/info?id=" + employee.getId());
-        //the redirect:/employee/info?id= is referring to the mapping of the employee info page
-        //after the redirect, it will input the data and create the new page
+            log.debug(form.toString());
 
-        return response;
+            Employee employee = new Employee();
+            employee.setEmail(form.getEmail());
+            employee.setFirstName(form.getFirstName());
+            employee.setLastName(form.getLastName());
+            employee.setExtension(form.getExtension());
+            log.debug(form.getOfficeId().toString());
+            employee.setJobTitle(form.getJobTitle());
+            employee.setReportsTo(form.getReportsTo());
+            employee.setVacationHours(form.getVacationHours());
+            employee.setProfileImageURL(form.getProfileImageURL());
+
+
+            Offices office = officesDAO.findById(form.getOfficeId());
+            //we have to create an office object bc of the updatable = false and insertable = false
+            employee.setOffice(office);
+
+            employee = employeeDAO.save(employee);
+            //when we save to the database, it will autoincrement to give us a new id
+            //the new id is available in the return from the save method
+            //returns the same object after the info has been inserted into the db
+
+            response.setViewName("redirect:/employee/info?id=" + employee.getId());
+            //the redirect:/employee/info?id= is referring to the mapping of the employee info page
+            //after the redirect, it will input the data and create the new page
+
+            return response;
+
+        }
     }
 }

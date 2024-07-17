@@ -17,8 +17,8 @@
                         <td>${employeeKey.id}</td>
                     </tr>
                     <tr>
-                        <td style="font-weight: bolder;">Office ID:</td>
-                        <td>${employeeKey.officeId}</td>
+                        <td style="font-weight: bolder;">Office:</td>
+                        <td>${employeeKey.office.city}</td>
                     </tr>
                     <tr>
                         <td style="font-weight: bolder;">Full Name:</td>

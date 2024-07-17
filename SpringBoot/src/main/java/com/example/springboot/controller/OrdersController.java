@@ -1,6 +1,9 @@
 package com.example.springboot.controller;
 
+import com.example.springboot.database.DAO.OrderDetailsDAO;
 import com.example.springboot.database.DAO.OrdersDAO;
+import com.example.springboot.database.entity.Customer;
+import com.example.springboot.database.entity.OrderDetails;
 import com.example.springboot.database.entity.Orders;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +21,9 @@ public class OrdersController {
     @Autowired
     private OrdersDAO ordersDAO;
 
+    @Autowired
+    private OrderDetailsDAO orderDetailsDAO;
+
     @GetMapping("/orders/search")
     //the get mapping ^^^ is the url that you use in the bar
     public ModelAndView searchOrders(@RequestParam(required = false) Integer search) {
@@ -33,7 +39,7 @@ public class OrdersController {
         //i am going to add the user unput back into the model so that we can display the search term in the input field
         response.addObject("search", search);
 
-        List<Orders> orders = ordersDAO.findBycustomerID(search);
+        List<Orders> orders = ordersDAO.findByCustomerID(search);
         response.addObject("orders", orders);
         //the attribute name assigns a name for the jsp to use, the second term needs to match the list name, bc that is what references it
         log.debug(orders.toString());
@@ -53,6 +59,9 @@ public class OrdersController {
 
         Orders order  = ordersDAO.findById(id);
         response.addObject("orderKey", order);
+
+        List<OrderDetails> orderDetails = orderDetailsDAO.findByOrderId(id);
+        response.addObject("orderDetails", orderDetails);
 
 
 

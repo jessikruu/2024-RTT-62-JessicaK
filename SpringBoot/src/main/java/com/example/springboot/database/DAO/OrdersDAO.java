@@ -10,6 +10,6 @@ public interface OrdersDAO extends JpaRepository<Orders, Long> {
     Orders findById(Integer id);
 
 //    @Query("SELECT o from Orders o join Customer c on o.customerID = c.id WHERE c.id = :id")
-    List<Orders> findBycustomerID(Integer id);
+    List<Orders> findByCustomerID(Integer id);
 
 }

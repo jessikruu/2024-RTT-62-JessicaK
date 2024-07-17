@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="/pub/css/global.css">
 
 
-<h1>Order Info</h1>
+<h1>Order Details</h1>
 
 
 <body class="bottom-of-page">
@@ -47,51 +47,6 @@
         </div>
     </div>
 
-</div>
-
-<div class="container">
-
-    <p>
-        <a class="btn btn-primary custom-primary custom-primary:hover" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
-           aria-controls="collapseExample">
-            Order Details
-        </a>
-    </p>
-    <div class="collapse" id="collapseExample">
-        <div class="card card-body">
-
-            <div class="row pt-5">
-                <div class="col-12">
-                    <h2 class="text-center">Order History</h2>
-                </div>
-            </div>
-            <div class="row pt-3 justify-content-center">
-                <div class="col-4">
-                    <table class="table">
-                        <tr>
-                            <th>Product ID:</th>
-                            <th>Product Name:</th>
-                            <th>Quantity Ordered:</th>
-                            <th>Price Each:</th>
-                            <th>Line Item Total:</th>
-
-                        </tr>
-                        <c:forEach items="${orders}" var="order">
-                            <tr onclick="window.location.href = '/orders/info?id=${order.id}'"
-                                class="clickable-row">
-                                <td>${orderdetails.quantityOrdered}</td>
-                                <td>${order.status}</td>
-                                <td>${order.status}</td>
-                                <td>${order.status}</td>
-                                <td>${order.status}</td>
-
-                            </tr>
-                        </c:forEach>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 </body>
 <jsp:include page="../include/footer.jsp"/>

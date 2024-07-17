@@ -60,7 +60,7 @@ public class CustomerController {
         Customer customer = customerDAO.findById(id);
         response.addObject("customerKey", customer);
 
-        List<Orders> orders = ordersDAO.findBycustomerID(id);
+        List<Orders> orders = ordersDAO.findByCustomerID(id);
         response.addObject("orders", orders);
 
 
