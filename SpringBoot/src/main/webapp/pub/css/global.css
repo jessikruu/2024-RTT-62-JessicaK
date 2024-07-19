@@ -69,7 +69,9 @@ input[type=text]:focus {
     background: rgba(255,255,255, .2);
     padding: 20px;
     /*margin-bottom: 20px;*/
-    /*margin: auto;*/
+    justify-content: center;
+    /*position: relative;*/
+
 
 
 }

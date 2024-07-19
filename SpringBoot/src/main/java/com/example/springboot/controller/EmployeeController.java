@@ -97,6 +97,42 @@ public class EmployeeController {
         return response;
     }
 
+    @GetMapping("/edit")
+    public ModelAndView edit(@RequestParam(required = false) Integer employeeId) {
+        ModelAndView response = new ModelAndView("employee/createEmployee");
+
+        List<Employee> reportsToEmployees = employeeDAO.findAll();
+
+        response.addObject("reportsToEmployees", reportsToEmployees);
+
+        List<Offices> reportingToOffice = officesDAO.findAll();
+
+        response.addObject("reportingToOffice", reportingToOffice);
+
+        if (employeeId != null) {
+
+            Employee employee = employeeDAO.findById(employeeId);
+            if (employee != null) {
+                CreateEmployeeFormBean form = new CreateEmployeeFormBean();
+
+                form.setEmployeeId(employee.getId());
+                form.setEmail(employee.getEmail());
+                form.setFirstName(employee.getFirstName());
+                form.setLastName(employee.getLastName());
+                form.setReportsTo(employee.getReportsTo());
+                form.setOfficeId(employee.getOffice().getId());
+                form.setExtension(employee.getExtension());
+                form.setJobTitle(employee.getJobTitle());
+                form.setProfileImageURL(employee.getProfileImageURL());
+                form.setVacationHours(employee.getVacationHours());
+
+                response.addObject("form", form);
+            }
+        }
+
+        return response;
+    }
+
     @GetMapping("/createSubmit")
     public ModelAndView createSubmit(@Valid CreateEmployeeFormBean form, BindingResult bindingResult) {
         //@RequestParam String **email** the email needs to match the name that was assigned in the form (if used, code above updated to shortcut)
@@ -133,7 +169,11 @@ public class EmployeeController {
 
             log.debug(form.toString());
 
-            Employee employee = new Employee();
+            Employee employee = employeeDAO.findById(form.getEmployeeId());
+            if (employee == null) {
+                employee = new Employee();
+            }
+
             employee.setEmail(form.getEmail());
             employee.setFirstName(form.getFirstName());
             employee.setLastName(form.getLastName());
@@ -162,4 +202,6 @@ public class EmployeeController {
 
         }
     }
+
+
 }

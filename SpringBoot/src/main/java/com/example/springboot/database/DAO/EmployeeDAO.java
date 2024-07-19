@@ -13,5 +13,6 @@ public interface EmployeeDAO extends JpaRepository<Employee, Long> {
     @Query("select e from Employee e where e.lastName like concat('%', :name, '%') or e.firstName like concat('%', :name, '%') ")
     List<Employee> findByFirstOrLastName(String name);
 
+    Employee findByEmailIgnoreCase(String email);
 
 }

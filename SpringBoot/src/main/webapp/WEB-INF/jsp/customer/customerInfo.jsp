@@ -19,6 +19,10 @@
                         <td>${customerKey.id}</td>
                     </tr>
                     <tr>
+                        <td style="font-weight: bolder;">Sales Rep:</td>
+                        <td>${customerKey.employee.firstName} ${customerKey.employee.lastName}</td>
+                    </tr>
+                    <tr>
                         <td style="font-weight: bolder;">Customer Name:</td>
                         <td>${customerKey.customerName}</td>
                     </tr>
