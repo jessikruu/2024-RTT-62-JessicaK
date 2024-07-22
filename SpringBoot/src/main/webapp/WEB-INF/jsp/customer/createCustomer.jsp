@@ -4,13 +4,11 @@
 
 <!-- page header -->
 <c:if test="${empty form.customerId}">
-<h1 class="text-center">Create Customer</h1>
+    <h1 class="text-center">Create Customer</h1>
 </c:if>
 <c:if test="${not empty form.customerId}">
     <h1 class="text-center">Edit Customer</h1>
 </c:if>
-
-<body class="bottom-of-page">
 
 
 <section>
@@ -33,7 +31,8 @@
                             <label for="customerNameID" class="col-form-label">Customer Name:</label>
                         </div>
                         <div class="col-4">
-                            <input type="text" id="customerNameID" name="customerName" class="form-control <c:if test="${bindingResult.hasFieldErrors('customerName')}">is-invalid</c:if>"
+                            <input type="text" id="customerNameID" name="customerName"
+                                   class="form-control <c:if test="${bindingResult.hasFieldErrors('customerName')}">is-invalid</c:if>"
                                    value="${form.customerName}">
                         </div>
                     </div>
@@ -50,7 +49,6 @@
                     </c:if>
 
 
-
                     <!-- contactLastName input -->
 
                     <div class="row align-items-center justify-content-center">
@@ -59,7 +57,8 @@
                             <label for="contactFirstNameID" class="col-form-label">Contact First Name:</label>
                         </div>
                         <div class="col-4">
-                            <input type="text" id="contactFirstNameID" name="contactFirstName" class="form-control <c:if test="${bindingResult.hasFieldErrors('contactFirstName')}">is-invalid</c:if>"
+                            <input type="text" id="contactFirstNameID" name="contactFirstName"
+                                   class="form-control <c:if test="${bindingResult.hasFieldErrors('contactFirstName')}">is-invalid</c:if>"
                                    value="${form.contactFirstName}">
                         </div>
                     </div>
@@ -83,7 +82,8 @@
                             <label for="contactLastNameID" class="col-form-label">Contact Last Name:</label>
                         </div>
                         <div class="col-4">
-                            <input type="text" id="contactLastNameID" name="contactLastName" class="form-control <c:if test="${bindingResult.hasFieldErrors('contactLastName')}">is-invalid</c:if>"
+                            <input type="text" id="contactLastNameID" name="contactLastName"
+                                   class="form-control <c:if test="${bindingResult.hasFieldErrors('contactLastName')}">is-invalid</c:if>"
                                    value="${form.contactLastName}">
                         </div>
                     </div>
@@ -107,7 +107,8 @@
                             <label for="phoneID" class="col-form-label">Phone Number:</label>
                         </div>
                         <div class="col-4">
-                            <input type="text" id="phoneID" name="phone" class="form-control <c:if test="${bindingResult.hasFieldErrors('phone')}">is-invalid</c:if>"
+                            <input type="text" id="phoneID" name="phone"
+                                   class="form-control <c:if test="${bindingResult.hasFieldErrors('phone')}">is-invalid</c:if>"
                                    value="${form.phone}">
                         </div>
                     </div>
@@ -131,7 +132,8 @@
                             <label for="address1ID" class="col-form-label">Address Line 1:</label>
                         </div>
                         <div class="col-4">
-                            <input type="text" id="address1ID" name="address1" class="form-control <c:if test="${bindingResult.hasFieldErrors('address1')}">is-invalid</c:if>"
+                            <input type="text" id="address1ID" name="address1"
+                                   class="form-control <c:if test="${bindingResult.hasFieldErrors('address1')}">is-invalid</c:if>"
                                    value="${form.address1}">
                         </div>
                     </div>
@@ -156,7 +158,8 @@
                             <label for="address2ID" class="col-form-label">Address Line 2:</label>
                         </div>
                         <div class="col-4">
-                            <input type="text" id="address2ID" name="address2" class="form-control <c:if test="${bindingResult.hasFieldErrors('address2')}">is-invalid</c:if>"
+                            <input type="text" id="address2ID" name="address2"
+                                   class="form-control <c:if test="${bindingResult.hasFieldErrors('address2')}">is-invalid</c:if>"
                                    value="${form.address2}">
                         </div>
                     </div>
@@ -180,7 +183,8 @@
                             <label for="cityID" class="col-form-label">City:</label>
                         </div>
                         <div class="col-4">
-                            <input type="text" id="cityID" name="city" class="form-control <c:if test="${bindingResult.hasFieldErrors('city')}">is-invalid</c:if>"
+                            <input type="text" id="cityID" name="city"
+                                   class="form-control <c:if test="${bindingResult.hasFieldErrors('city')}">is-invalid</c:if>"
                                    value="${form.city}">
                         </div>
                     </div>
@@ -204,7 +208,8 @@
                             <label for="stateID" class="col-form-label">State:</label>
                         </div>
                         <div class="col-4">
-                            <input type="text" id="stateID" name="state" class="form-control <c:if test="${bindingResult.hasFieldErrors('state')}">is-invalid</c:if>"
+                            <input type="text" id="stateID" name="state"
+                                   class="form-control <c:if test="${bindingResult.hasFieldErrors('state')}">is-invalid</c:if>"
                                    value="${form.state}">
                         </div>
                     </div>
@@ -228,7 +233,8 @@
                             <label for="zipCodeID" class="col-form-label">Zip Code:</label>
                         </div>
                         <div class="col-4">
-                            <input type="text" id="zipCodeID" name="zipCode" class="form-control <c:if test="${bindingResult.hasFieldErrors('zipCode')}">is-invalid</c:if>"
+                            <input type="text" id="zipCodeID" name="zipCode"
+                                   class="form-control <c:if test="${bindingResult.hasFieldErrors('zipCode')}">is-invalid</c:if>"
                                    value="${form.zipCode}">
                         </div>
                     </div>
@@ -252,7 +258,8 @@
                             <label for="countryID" class="col-form-label">Country:</label>
                         </div>
                         <div class="col-4">
-                            <input type="text" id="countryID" name="country" class="form-control <c:if test="${bindingResult.hasFieldErrors('country')}">is-invalid</c:if>"
+                            <input type="text" id="countryID" name="country"
+                                   class="form-control <c:if test="${bindingResult.hasFieldErrors('country')}">is-invalid</c:if>"
                                    value="${form.country}">
                         </div>
                     </div>
@@ -276,7 +283,8 @@
                             <label for="creditLimitID" class="col-form-label">Credit Limit:</label>
                         </div>
                         <div class="col-4">
-                            <input type="text" id="creditLimitID" name="creditLimit" class="form-control <c:if test="${bindingResult.hasFieldErrors('creditLimit')}">is-invalid</c:if>"
+                            <input type="text" id="creditLimitID" name="creditLimit"
+                                   class="form-control <c:if test="${bindingResult.hasFieldErrors('creditLimit')}">is-invalid</c:if>"
                                    value="${form.creditLimit}">
                         </div>
                     </div>
@@ -292,7 +300,7 @@
                         </div>
                     </c:if>
 
-<%--                    employee dropdown--%>
+                    <%--                    employee dropdown--%>
 
 
                     <div class="row align-items-center justify-content-center pb-3">
@@ -301,6 +309,7 @@
                         </div>
                         <div class="col-4">
                             <select id="salesRepEmployeeIDID" name="salesRepEmployeeID" class="form-control">
+                                <option disabled selected value="">Select Employee&#129485;</option>
                                 <c:forEach items="${reportsToEmployees}" var="employee">
                                     <option
                                             value="${employee.id}"
@@ -314,14 +323,12 @@
                     </div>
 
 
-
-
-
                     <div class="row justify-content-center">
 
                         <div class="col-auto">
 
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary  custom-primary custom-primary:hover">Submit
+                            </button>
 
                         </div>
 
@@ -336,6 +343,5 @@
     </div>
 </section>
 
-</body>
 
 <jsp:include page="../include/footer.jsp"/>

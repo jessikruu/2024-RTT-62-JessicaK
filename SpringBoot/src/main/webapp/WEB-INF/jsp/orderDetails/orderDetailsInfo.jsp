@@ -5,7 +5,6 @@
 <h1>Order Details</h1>
 
 
-<body class="bottom-of-page">
 <div class="tableBackground">
     <div class="container">
         <div class="row justify-content-center">
@@ -48,5 +47,4 @@
     </div>
 
 </div>
-</body>
 <jsp:include page="../include/footer.jsp"/>

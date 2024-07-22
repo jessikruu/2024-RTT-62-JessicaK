@@ -1,64 +1,64 @@
 <jsp:include page="../include/header.jsp"/>
 <link rel="stylesheet" href="/pub/css/global.css">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 
 
 <h1>Order Info</h1>
 
 
-<body class="bottom-of-page">
-<div class="tableBackground">
-    <div class="container">
-        <div class="row justify-content-center">
+<div class="container">
+    <div class="row justify-content-center">
 
-            <div class="col-auto">
-                <table class="table table-responsive" style="width: 750pt">
-                    <tr>
-                        <td style="font-weight: bolder;">Order ID:</td>
-                        <td>${orderKey.id}</td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: bolder;">Customer ID:</td>
-                        <td>${orderKey.customerID}</td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: bolder;">Order Date:</td>
-                        <td>${orderKey.orderDate}</td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: bolder;">Required Date:</td>
-                        <td>${orderKey.requiredDate}</td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: bolder;">Shipped Date:</td>
-                        <td>${orderKey.shippedDate}</td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: bolder;">Status:</td>
-                        <td>${orderKey.status}</td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: bolder;">Comments:</td>
-                        <td>${orderKey.comments}</td>
-                    </tr>
+        <div class="col-auto">
+            <table class="table table-responsive" style="width: 750pt">
+                <tr>
+                    <td style="font-weight: bolder;">Order ID:</td>
+                    <td>${orderKey.id}</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bolder;">Customer ID:</td>
+                    <td>${orderKey.customerID}</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bolder;">Order Date:</td>
+                    <td>${orderKey.orderDate}</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bolder;">Required Date:</td>
+                    <td>${orderKey.requiredDate}</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bolder;">Shipped Date:</td>
+                    <td>${orderKey.shippedDate}</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bolder;">Status:</td>
+                    <td>${orderKey.status}</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bolder;">Comments:</td>
+                    <td>${orderKey.comments}</td>
+                </tr>
 
 
-                </table>
-            </div>
+            </table>
         </div>
     </div>
-
 </div>
+
 
 <div class="container">
 
     <p>
-        <a class="btn btn-primary custom-primary custom-primary:hover" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+        <a class="btn btn-primary custom-primary custom-primary:hover" data-bs-toggle="collapse" href="#collapseExample"
+           role="button" aria-expanded="false"
            aria-controls="collapseExample">
             Order Details
         </a>
     </p>
     <div class="collapse" id="collapseExample">
-        <div class="card card-body">
+        <div class="card card-body body">
 
             <div class="row pt-5">
                 <div class="col-12">
@@ -93,5 +93,5 @@
         </div>
     </div>
 </div>
-</body>
+
 <jsp:include page="../include/footer.jsp"/>

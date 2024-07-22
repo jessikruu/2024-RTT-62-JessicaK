@@ -4,8 +4,6 @@
 
 
 <h1>Employee Info</h1>
-<body class="bottom-of-page">
-<div>
     <p>${employeeKey.firstName} ${employeeKey.lastName}</p>
     <div class="container">
         <div class="row justify-content-center">
@@ -49,17 +47,17 @@
         </div>
     </div>
 
-</div>
 <div class="container">
 
     <p>
-        <a class="btn btn-primary custom-primary custom-primary:hover" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+        <a class="btn btn-primary custom-primary custom-primary:hover" data-bs-toggle="collapse" href="#collapseExample"
+           role="button" aria-expanded="false"
            aria-controls="collapseExample">
             Customers Found (${customers.size()})
         </a>
     </p>
     <div class="collapse" id="collapseExample">
-        <div class="card card-body">
+        <div class="card card-body body">
 
             <div class="row pt-5">
                 <div class="col-12">
@@ -90,5 +88,5 @@
         </div>
     </div>
 </div>
-</body>
+
 <jsp:include page="../include/footer.jsp"/>

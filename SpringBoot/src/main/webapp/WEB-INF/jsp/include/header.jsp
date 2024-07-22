@@ -17,9 +17,13 @@
     <link rel="stylesheet" href="/pub/css/global.css">
 
 </head>
-<nav class="navbar navbar-expand-lg navbar-light " style="background-color: rgba(212, 212, 250,1)">
+<body class="body">
+
+<nav class="navbar navbar-expand-lg navbar-light " style="background: linear-gradient(180deg, rgba(209,186,255,1) 0%, rgba(252,224,234,0) 75%);
+">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/">Classic Models Search Engine</a>
+        <a class="navbar-brand" href="/"><img src="/pub/images/Classic_Models_Search_Engine_transparent.png" style="width: 100px"></a>
+
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -49,7 +53,7 @@
                             <a class="nav-link" href="/employee/create">Employee Create</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/employee/edit?employeeId?=">Employee Edit</a>
+                            <a class="nav-link" href="/employee/edit?employeeId=">Employee Edit</a>
                         </li>
                     </ul>
                 </div>
@@ -71,7 +75,7 @@
                             <a class="nav-link" href="/customer/create">Customer Create</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/customer/edit?customerId?=">Customer Edit</a>
+                            <a class="nav-link" href="/customer/edit?customerId=">Customer Edit</a>
                         </li>
                     </ul>
                 </div>

@@ -128,6 +128,9 @@ public class EmployeeController {
 
                 response.addObject("form", form);
             }
+            else {
+                response.addObject("errorMessage", "The employee wasn't found in the database");
+            }
         }
 
         return response;
