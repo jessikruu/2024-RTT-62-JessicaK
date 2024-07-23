@@ -38,9 +38,21 @@
                         <td style="font-weight: bolder;">Vacation Hrs:</td>
                         <td>${employeeKey.vacationHours}</td>
                     </tr>
+                    <tr>
+                        <td style="font-weight: bolder;">Profile Image:</td>
+                        <td><img src="${employeeKey.profileImageURL}"></td>
+                    </tr>
 
 
                 </table>
+
+                <div class="row justify-content-center">
+                    <div class="col-auto">
+                        <a href="/employee/edit?employeeId=${employeeKey.id}">Edit</a>
+                        <br/>
+                        <a href="/fileUpload?employeeId=${employeeKey.id}">Upload Image</a>
+                    </div>
+                </div>
 
 
             </div>

@@ -83,6 +83,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/orders/search">Order Search</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/fileUpload">Upload File</a>
+                </li>
 
                 <%--                <li class="nav-item">--%>
                 <%--                    <a class="nav-link" href="/another-page">2nd Page</a>--%>

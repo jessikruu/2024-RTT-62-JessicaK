@@ -62,13 +62,14 @@
 
             <div class="row pt-5">
                 <div class="col-12">
-                    <h2 class="text-center">Order History</h2>
+                    <h2 class="text-center">Order Total:</h2>
                 </div>
             </div>
             <div class="row pt-3 justify-content-center">
-                <div class="col-4">
+                <div class="col-8">
                     <table class="table">
                         <tr>
+                            <th>Order ID:</th>
                             <th>Product ID:</th>
                             <th>Product Name:</th>
                             <th>Quantity Ordered:</th>
@@ -76,14 +77,15 @@
                             <th>Line Item Total:</th>
 
                         </tr>
-                        <c:forEach items="${orders}" var="order">
-                            <tr onclick="window.location.href = '/orders/info?id=${order.id}'"
+                        <c:forEach items="${orderDetails}" var="order">
+                            <tr onclick="window.location.href = '/product/info?id=${order.product_id}'"
                                 class="clickable-row">
-                                <td>${orderdetails.quantityOrdered}</td>
-                                <td>${order.status}</td>
-                                <td>${order.status}</td>
-                                <td>${order.status}</td>
-                                <td>${order.status}</td>
+                                <td>${order.order_id}</td>
+                                <td>${order.product_id}</td>
+                                <td>${order.product_name}</td>
+                                <td>${order.quantity_ordered}</td>
+                                <td>${order.price_each}</td>
+                                <td>${order.line_item_total}</td>
 
                             </tr>
                         </c:forEach>

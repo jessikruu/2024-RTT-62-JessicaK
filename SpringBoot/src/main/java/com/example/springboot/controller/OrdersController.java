@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
+import java.util.Map;
 
 @Slf4j
 @Controller
@@ -60,8 +61,15 @@ public class OrdersController {
         Orders order  = ordersDAO.findById(id);
         response.addObject("orderKey", order);
 
-        List<OrderDetails> orderDetails = orderDetailsDAO.findByOrderId(id);
+//        List<OrderDetails> orderDetails = orderDetailsDAO.findByOrderId(id);
+//        response.addObject("orderDetails", orderDetails);
+
+        List<Map<String,Object>> orderDetails = ordersDAO.getOrderDetails(id);
         response.addObject("orderDetails", orderDetails);
+
+//        List<OrderDetails> orderTotal = orderDetailsDAO.findTotal(id);
+//        response.addObject("orderTotal", orderTotal);
+
 
 
 

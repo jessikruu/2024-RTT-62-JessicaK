@@ -16,9 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -50,7 +48,7 @@ public class EmployeeController {
         log.debug("The user searched for the term: " + search);
 
 
-        //i am going to add the user unput back into the model so that we can display the search term in the input field
+        //i am going to add the user input back into the model so that we can display the search term in the input field
         response.addObject("search", search);
 
         List<Employee> employees = employeeDAO.findByFirstOrLastName(search);
@@ -82,10 +80,7 @@ public class EmployeeController {
         return response;
     }
 
-    @GetMapping("/create")
-    public ModelAndView create() {
-        ModelAndView response = new ModelAndView("employee/createEmployee");
-
+    private void loadDropdowns(ModelAndView response) {
         List<Employee> reportsToEmployees = employeeDAO.findAll();
 
         response.addObject("reportsToEmployees", reportsToEmployees);
@@ -93,6 +88,15 @@ public class EmployeeController {
         List<Offices> reportingToOffice = officesDAO.findAll();
 
         response.addObject("reportingToOffice", reportingToOffice);
+    }
+
+
+    @GetMapping("/create")
+    public ModelAndView create() {
+        ModelAndView response = new ModelAndView("employee/createEmployee");
+
+        loadDropdowns(response);
+
 
         return response;
     }
@@ -101,13 +105,7 @@ public class EmployeeController {
     public ModelAndView edit(@RequestParam(required = false) Integer employeeId) {
         ModelAndView response = new ModelAndView("employee/createEmployee");
 
-        List<Employee> reportsToEmployees = employeeDAO.findAll();
-
-        response.addObject("reportsToEmployees", reportsToEmployees);
-
-        List<Offices> reportingToOffice = officesDAO.findAll();
-
-        response.addObject("reportingToOffice", reportingToOffice);
+        loadDropdowns(response);
 
         if (employeeId != null) {
 
@@ -136,10 +134,22 @@ public class EmployeeController {
         return response;
     }
 
+//    @PostMapping("/createSubmit")
+//    @RequestMapping(value = "/createSubmit", method = { RequestMethod.POST, RequestMethod.GET })
     @GetMapping("/createSubmit")
     public ModelAndView createSubmit(@Valid CreateEmployeeFormBean form, BindingResult bindingResult) {
         //@RequestParam String **email** the email needs to match the name that was assigned in the form (if used, code above updated to shortcut)
         ModelAndView response = new ModelAndView();
+
+
+        //we need to validate that the email does not exist in the database, but we only want to check if it is a create
+        //if the create is using an existing email, it will skip the if statement, and drop into the .haserrors if statement below
+        if (form.getEmployeeId() == null) {
+            Employee e = employeeDAO.findByEmailIgnoreCase(form.getEmail());
+            if (e != null) {
+                bindingResult.rejectValue("email", "email", "This email is already in use, Manual Check");
+            }
+        }
 
         if (bindingResult.hasErrors()) {
             for (ObjectError error : bindingResult.getAllErrors()) {
@@ -150,13 +160,13 @@ public class EmployeeController {
             //we add the binding result to the model so we can use it on the JSP page to show the user the errors
             response.addObject("bindingResult", bindingResult);
 
-            //the page needs the list of employees, so we need to add the list of employees to the model
-            List<Employee> reportsToEmployees = employeeDAO.findAll();
-            response.addObject("reportsToEmployees", reportsToEmployees);
-
-            //also need the list of offices
-            List<Offices> reportingToOffice = officesDAO.findAll();
-            response.addObject("reportingToOffice", reportingToOffice);
+//            //the page needs the list of employees, so we need to add the list of employees to the model
+//            List<Employee> reportsToEmployees = employeeDAO.findAll();
+//            response.addObject("reportsToEmployees", reportsToEmployees);
+//
+//            //also need the list of offices
+//            List<Offices> reportingToOffice = officesDAO.findAll();
+//            response.addObject("reportingToOffice", reportingToOffice);
 
             response.setViewName("employee/createEmployee");
 
@@ -201,7 +211,13 @@ public class EmployeeController {
             //the redirect:/employee/info?id= is referring to the mapping of the employee info page
             //after the redirect, it will input the data and create the new page
 
+
+            //below are used for post mapping
+//            loadDropdowns(response);
+//            response.setViewName("employee/createEmployee");
+
             return response;
+
 
         }
     }

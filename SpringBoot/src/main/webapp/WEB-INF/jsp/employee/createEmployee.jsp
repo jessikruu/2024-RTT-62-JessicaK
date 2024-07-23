@@ -26,8 +26,9 @@
         <div class="row pt-5">
 
             <div class="col-12">
+<%--                method="post"--%>
 
-                <form class="form-container row g-3" action="/employee/createSubmit">
+                <form class="form-container row g-3" action="/employee/createSubmit" >
 
                     <input type="hidden" name="employeeId" value="${form.employeeId}">
 

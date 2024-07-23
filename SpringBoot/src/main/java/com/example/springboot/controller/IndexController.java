@@ -9,10 +9,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.List;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 
 @Slf4j
 @Controller
@@ -77,40 +81,45 @@ public class IndexController {
     }
 
 
-    @GetMapping("/product/search")
-    public ModelAndView search(@RequestParam(required = false) String search) {
+    @GetMapping("/fileUpload")
+    public ModelAndView fileUpload(@RequestParam Integer employeeId) {
 
-        //this page is for another page of the website which is expressed by / and words after, such as http://localhost:8080/another-page
-
-        ModelAndView response = new ModelAndView("product/productSearch");
-
-        log.debug("The user searched for the term: " + search);
-
-        //i am going to add the user unput back into the model so that we can display the search term in the input field
-        response.addObject("search", search);
-
-        List<Product> products = productDAO.findByNameOrCode(search);
-        response.addObject("products", products);
+        ModelAndView response = new ModelAndView("fileUpload");
+        response.addObject("employeeId", employeeId);
 
         return response;
     }
 
-    @GetMapping("/product/info")
-    public ModelAndView productInfo(@RequestParam(required = false) Integer id) {
+    @PostMapping("/fileUpload")
+    public ModelAndView fileUploadSubmit(@RequestParam MultipartFile file, @RequestParam Integer employeeId) {
 
-        //by default the @requestparam is required, meaning it has to be in the url or else you get error
-        // if the id param isn't present on the url, the incoming id will be null
+        ModelAndView modelAndView = new ModelAndView("redirect:/employee/info?id=" + employeeId);
 
-        //this function is for the home page of the website which is expressed as just the plain /
-
-        ModelAndView response = new ModelAndView("product/productInfo");
-
-        Product product = productDAO.findById(id);
-        response.addObject("productKey", product);
+        log.debug("The file name is: " + file.getOriginalFilename());
+        log.debug("The fize size is: " + file.getSize());
+        log.debug("The content type is: " + file.getContentType());
 
 
+        String saveFileName = "./src/main/webapp/pub/images/" + file.getOriginalFilename();
 
-        return response;
+        //Files.copy is a itility that will read the stream one chunk at a time and write it to a file
+        //first argument is the input stream to read from the uploaded file
+        //second is the file name where we want to write the file
+        //third says to overwrite if already exists
+        try {
+            Files.copy(file.getInputStream(), Paths.get(saveFileName), StandardCopyOption.REPLACE_EXISTING);
+        } catch (Exception e) {
+            log.error("Unable to finish reading file, ", e);
+        }
+
+        Employee employee = employeeDAO.findById(employeeId);
+
+        String url = "/pub/images/" + file.getOriginalFilename();
+        employee.setProfileImageURL(url);
+
+        employeeDAO.save(employee);
+
+        return modelAndView;
     }
 
 
