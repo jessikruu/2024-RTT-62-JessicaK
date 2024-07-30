@@ -9,7 +9,7 @@
 <%--    <div class="container">--%>
 <%--        <div class="row pt-5 pb-5">--%>
 
-<h1 class="text-center">Employee Info Search Page</h1>
+<h1 class="text-center">Employee Search Page</h1>
 
 <%--        </div>--%>
 <%--    </div>--%>

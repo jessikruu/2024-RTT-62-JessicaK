@@ -9,6 +9,7 @@ import com.example.springboot.database.DAO.EmployeeDAO;
 import com.example.springboot.database.entity.Offices;
 import com.example.springboot.database.entity.Product;
 import com.example.springboot.form.CreateEmployeeFormBean;
+import com.example.springboot.service.EmployeeService;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,9 @@ public class EmployeeController {
 
     @Autowired
     private OfficesDAO officesDAO;
+
+    @Autowired
+    private EmployeeService employeeService;
 
     @GetMapping("/search")
     //the get mapping ^^^ is the url that you use in the bar
@@ -135,8 +139,8 @@ public class EmployeeController {
     }
 
 //    @PostMapping("/createSubmit")
-//    @RequestMapping(value = "/createSubmit", method = { RequestMethod.POST, RequestMethod.GET })
-    @GetMapping("/createSubmit")
+    @RequestMapping(value = "/createSubmit", method = { RequestMethod.POST, RequestMethod.GET })
+//    @GetMapping("/createSubmit")
     public ModelAndView createSubmit(@Valid CreateEmployeeFormBean form, BindingResult bindingResult) {
         //@RequestParam String **email** the email needs to match the name that was assigned in the form (if used, code above updated to shortcut)
         ModelAndView response = new ModelAndView();
@@ -179,30 +183,9 @@ public class EmployeeController {
 
         } else {
 
+            //call the employee service to create the employee
+            Employee employee = employeeService.createEmployee(form);
 
-            log.debug(form.toString());
-
-            Employee employee = employeeDAO.findById(form.getEmployeeId());
-            if (employee == null) {
-                employee = new Employee();
-            }
-
-            employee.setEmail(form.getEmail());
-            employee.setFirstName(form.getFirstName());
-            employee.setLastName(form.getLastName());
-            employee.setExtension(form.getExtension());
-            log.debug(form.getOfficeId().toString());
-            employee.setJobTitle(form.getJobTitle());
-            employee.setReportsTo(form.getReportsTo());
-            employee.setVacationHours(form.getVacationHours());
-            employee.setProfileImageURL(form.getProfileImageURL());
-
-
-            Offices office = officesDAO.findById(form.getOfficeId());
-            //we have to create an office object bc of the updatable = false and insertable = false
-            employee.setOffice(office);
-
-            employee = employeeDAO.save(employee);
             //when we save to the database, it will autoincrement to give us a new id
             //the new id is available in the return from the save method
             //returns the same object after the info has been inserted into the db

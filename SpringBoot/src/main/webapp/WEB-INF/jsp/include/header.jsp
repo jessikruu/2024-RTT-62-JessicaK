@@ -1,3 +1,5 @@
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -22,7 +24,8 @@
 <nav class="navbar navbar-expand-lg navbar-light " style="background: linear-gradient(180deg, rgba(209,186,255,1) 0%, rgba(252,224,234,0) 75%);
 ">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/"><img src="/pub/images/Classic_Models_Search_Engine_transparent.png" style="width: 100px"></a>
+        <a class="navbar-brand" href="/"><img src="/pub/images/Classic_Models_Search_Engine_transparent.png"
+                                              style="width: 100px"></a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -86,6 +89,19 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/fileUpload">Upload File</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/account/create-account">Create User</a>
+                </li>
+                <sec:authorize access="!isAuthenticated()">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/account/login">LogIn</a>
+                    </li>
+                </sec:authorize>
+                <sec:authorize access="isAuthenticated()">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/account/logout">LogOut</a>
+                    </li>
+                </sec:authorize>
 
                 <%--                <li class="nav-item">--%>
                 <%--                    <a class="nav-link" href="/another-page">2nd Page</a>--%>
