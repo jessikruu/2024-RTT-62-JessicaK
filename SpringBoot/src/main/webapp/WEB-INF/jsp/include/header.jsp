@@ -103,9 +103,42 @@
                     </li>
                 </sec:authorize>
 
-                <%--                <li class="nav-item">--%>
-                <%--                    <a class="nav-link" href="/another-page">2nd Page</a>--%>
-                <%--                </li>--%>
+                <sec:authorize access="hasAnyAuthority('ADMIN')">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                        Admin
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton1">
+                        <li class="nav-item">
+                            <span class="nav-link"><sec:authentication property="name"/></span>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/dashboard">Dashboard</a>
+                        </li>
+
+                    </ul>
+
+                    </sec:authorize>
+
+                    <sec:authorize access="hasAnyAuthority('USER')">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                            User
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton1">
+                            <li class="nav-item">
+                                <span class="nav-link"><sec:authentication property="name"/></span>
+                            </li>
+
+                        </ul>
+
+                        </sec:authorize>
+
+                    <%--                <li class="nav-item">--%>
+                    <%--                    <a class="nav-link" href="/another-page">2nd Page</a>--%>
+                    <%--                </li>--%>
 
 
             </ul>

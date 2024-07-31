@@ -4,10 +4,21 @@
 
 <h1>Log In</h1>
 
-<section>
-    <div class="container form-container">
-        <div class="row pt-5 ">
+<div class="container form-container">
+    <c:if test="${param['error'] eq ''}">
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <div class="alert alert-danger" style="text-align: center" role="alert">Invalid Username or Password
+                </div>
+            </div>
+        </div>
+    </c:if>
+
+    <section>
+
+        <div class="row pt-3 ">
             <div class="col-12">
+
                 <form action="/account/loginProcessingURL" method="post">
 
                     <!-- email input -->
@@ -16,7 +27,9 @@
                             <label for="emailId" class="col-form-label">Email</label>
                         </div>
                         <div class="col-4">
-                            <input type="text" id="emailId" name="username" class="form-control <c:if test="${bindingResult.hasFieldErrors('email')}">is-invalid</c:if>" value="${form.email}">
+                            <input type="text" id="emailId" name="username"
+                                   class="form-control <c:if test="${bindingResult.hasFieldErrors('email')}">is-invalid</c:if>"
+                                   value="${form.email}">
                         </div>
                     </div>
                     <c:if test="${bindingResult.hasFieldErrors('email')}">
@@ -65,9 +78,9 @@
                 </form>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
+</div>
 
 
 <jsp:include page="../include/footer.jsp"/>
