@@ -3,7 +3,9 @@ package com.example.springboot.controller;
 
 import com.example.springboot.database.DAO.UserDAO;
 import com.example.springboot.form.CreateAccountFormBean;
+import com.example.springboot.security.AuthenticatedUserUtilities;
 import com.example.springboot.service.UserService;
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +29,9 @@ public class LoginController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private AuthenticatedUserUtilities authenticatedUserUtilities;
+
     @GetMapping("/create-account")
     //localhost:8080/account/create-account
     public ModelAndView createAccount() {
@@ -46,7 +51,7 @@ public class LoginController {
     }
 
     @PostMapping("/create-account")
-    public ModelAndView createAccountSubmit(@Valid CreateAccountFormBean form, BindingResult bindingResult) {
+    public ModelAndView createAccountSubmit(@Valid CreateAccountFormBean form, BindingResult bindingResult, HttpSession session) {
 
         ModelAndView response = new ModelAndView("auth/create-account");
 
@@ -62,7 +67,7 @@ public class LoginController {
         } else {
 
         userService.createUser(form);
-
+        authenticatedUserUtilities.manualAuthentication(session, form.getEmail(), form.getPassword());
 
         }
 
