@@ -66,6 +66,8 @@ public class Student {
     public int hashCode() {
         return Objects.hash(email, name);
     }
+
+
 }
 
 
